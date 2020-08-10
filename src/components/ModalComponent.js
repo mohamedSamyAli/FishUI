@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'antd';
+import { AlignJustify } from 'react-feather';
 
 class ModalComponent extends Component {
     state = { visible: false };
@@ -30,7 +31,8 @@ class ModalComponent extends Component {
         return (
             <>
                 <Button type="primary" onClick={this.showModal}>
-                    هوبا
+                <AlignJustify/>
+  
         </Button>
                 {visible && (<Modal
                     width="95%"

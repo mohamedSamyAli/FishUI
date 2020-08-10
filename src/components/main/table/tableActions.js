@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tooltip , Button }from 'antd';
-import { Edit, XCircle, Map, Calendar } from 'react-feather'
+import { Edit, XCircle, Map, Calendar ,AlignJustify} from 'react-feather'
 
 const TableAction = ({type , action }) => {
     const defaultActions = {

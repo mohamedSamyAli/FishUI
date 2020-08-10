@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { Table, Space ,Form } from 'antd';
+import { Table, Space, Form, Button } from 'antd';
 import { baseURl } from '../../../URLS';
 import { Plus } from 'react-feather';
 import ButtonComponent from '../button'
 import TableAction from './tableActions';
 import ModelComponent from '../model';
-import JobsEdit from '../../modules/admin/jobs/addEdit';
 import './table.css';
 import './Form.css';
 import './inputField.css'
+import GenaricForm from '../../Tables/GenaricForm';
+import LakeQV from '../../../FormDescription/Com_Form/LakeQV';
 
 var $ = require("jquery");
 
@@ -139,34 +140,46 @@ class GenaricTable extends Component {
         const { filters, button, columns, data } = this.props
         return (
             <>
-                
-                    
-                        <div className="table__Actions">
-                            <ButtonComponent action={this.onClickAdd} bgcolor="primary" txcolor="white" type="primary">
-                                <div className="center__item" >
-                                    <Plus />
+
+
+                <div className="table__Actions">
+                    <ButtonComponent action={this.onClickAdd} bgcolor="primary" txcolor="white" type="primary">
+                        <div className="center__item" >
+                            <Plus />
                                     أضافة
                                 </div>
-                            </ButtonComponent>
-                        </div>
-                        
-                
+                    </ButtonComponent>
+                </div>
                 <Table
                     columns={this.schema.columns}
                     dataSource={this.state.data}
                     scroll={{ x: 'max-content', y: 250 }} />
-
                 {visible && (
                     <ModelComponent hideModal={this.handleCancel} title=" إضافة وظيفة جديد" visible={visible}>
-                        <Form className="form_container" >
-                        </Form>
-                    </ModelComponent>
+                       <div className="doubleCellForm__wrapper">
 
-)}
+                        <Form className="form_container"
+                            ref={el => { myForm = el }}
+                            onFieldsChange={this.onFormChange}
+                            name="validate_other"
+                            onFinish={this.onFinish}
+                            initialValues={this.state.initialValues}
+                            >
+                            <LakeQV/>
+                            {/* <GenaricForm schema={this.props.schema.formSchema} /> */}
+                            <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
+                                <Button type="primary" htmlType="submit" onClick={() => { console.log("smsm") }}>
+                                    Submit
+             </Button>
+                            </Form.Item>
+                        </Form>
+                            </div>
+                    </ModelComponent>
+                )}
             </>
 
-);
-}
+        );
+    }
 }
 
 export default GenaricTable;

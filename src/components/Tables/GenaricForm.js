@@ -14,20 +14,16 @@ const GenaricForm = (props) => {
     const { schema } = props
     return (
     
-    // <Collapse ghost>
-    <>
+    <div>
         {schema.map((e, i) => {
             if (!Array.isArray(e)) {
                 return (
-                    //  <Panel header="smsm" className="ant-form-item-required">
-
                     <Form.Item
                         key={i}
                         {...e.config}
                         >
                         <e.render  />
                     </Form.Item>
-                // </Panel>
                 )
             } else {
                 return (
@@ -48,7 +44,7 @@ const GenaricForm = (props) => {
             }
         })}
     {/* </Collapse> */}
-     </>
+     </div>
     )
 
 }

@@ -11,6 +11,7 @@ import { Form } from 'antd';
 const SingleCellForm = ({ fields, button}) => {
     return (  
     <Form className="form_container" >
+        
         {
             fields.map(field=>{
                 if(field.divider){

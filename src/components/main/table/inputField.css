@@ -1,8 +1,12 @@
-.ant-form-item{
+.ant-row .ant-form-item{
     width: 80%;
     margin: auto;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* display: block; */
     flex-flow: nowrap;
+
 }
 .ant-input{
     background-color: transparent;
@@ -39,7 +43,7 @@ input:focus + .ant-form-item-label {
     border: none;
     border-bottom: 1.2px solid var(--color-gray-dark-3);
 }
-.ant-form .ant-row {
+.ant-form .ant-row-rtl {
     margin: .5rem 0rem 1.2rem;
 }
 .ant-col .ant-form-item-control{
@@ -48,10 +52,10 @@ input:focus + .ant-form-item-label {
 .ant-form-item-has-error .ant-form-item-explain, .ant-form-item-has-error .ant-form-item-split {
     font-size: 1.2rem;
 }
-.form_container {
+/* .form_container {
     direction: rtl;
-}
-.ant-select-arrow {
+} */
+.ant-select-row {
     right: auto;
     left: 11px;
 }
