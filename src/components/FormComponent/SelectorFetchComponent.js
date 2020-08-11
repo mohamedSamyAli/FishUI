@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import schema from './selectorScema.js'
 import { baseURl } from '../../URLS'
 import { Select, Form } from 'antd';
-import{mapDispatchToProps,mapStateToProps}from"../reduxMaping"
+import { mapDispatchToProps, mapStateToProps } from "../reduxMaping"
 import { connect } from 'react-redux';
 
 const { Option } = Select;
@@ -11,19 +11,24 @@ const axios = require('axios')
 class GovSelectorComponent extends Component {
     state = {
         data: [],
-        defValue:''
+        defValue: ''
     }
-    fetchData = (id="") => {
-        axios.get(baseURl + schema[this.props.entity].endPoint+id)
+    constructor(props) {
+        super(props)
+        console.log(this.props.entity)
+        console.log(schema[this.props.entity])
+    }
+    fetchData = (id = "") => {
+        axios.get(baseURl + schema[this.props.entity].endPoint + id)
             .then((response) => {
                 let temp = schema[this.props.entity].parser(response.data)
-                if(Array.isArray(temp)){
+                if (Array.isArray(temp)) {
                     this.setState({ data: temp })
-                }else{
+                } else {
                     temp = [temp];
                     this.props.onChange(temp[0].key)
-                    console.log(">>>>>>>>>>>>>>>>>>>>>>",temp[0].key)
-                    this.setState({ data:temp,defValue:temp[0].key})
+                    console.log(">>>>>>>>>>>>>>>>>>>>>>", temp[0].key)
+                    this.setState({ data: temp, defValue: temp[0].key })
                 }
                 console.log(response.data)
             })
@@ -31,36 +36,37 @@ class GovSelectorComponent extends Component {
                 console.log(error);
             })
     }
-    ChangeTriger=(e)=>{
-        if(this.props.parentE && !this.props.ChildE){
-            Object.getOwnPropertyNames(this.props[this.props.parentE]).map((ele,i)=>{
+    ChangeTriger = (e) => {
+        if (this.props.parentE && !this.props.ChildE) {
+            Object.getOwnPropertyNames(this.props[this.props.parentE]).map((ele, i) => {
                 try {
                     this.props[this.props.parentE][ele](e)
                 } catch (error) {
                 }
-            }) 
+            })
         }
-        console .log(e)
+        console.log(e)
         this.props.onChange(e)
     }
     componentDidMount() {
+
         debugger
-        if(this.props.ChildE){
+        if (this.props.ChildE) {
             this.props[this.props.parentE][this.props.ChildE] = this.fetchData
-        }else{
+        } else {
             this.fetchData()
         }
 
     }
-    componentWillUnmount(){
-        if(this.props.ChildE){
+    componentWillUnmount() {
+        if (this.props.ChildE) {
             this.props[this.props.parentE][this.props.ChildE] = null
         }
     }
     render() {
-        const { data ,defValue} = this.state
+        const { data, defValue } = this.state
         return (
-                <Select
+            <Select
                 {...schema[this.props.entity].config}
                 showSearch
                 style={{ width: 200 }}
@@ -70,14 +76,14 @@ class GovSelectorComponent extends Component {
                 }
                 {...this.props}
                 onChange={this.ChangeTriger}
-                >
-                    {
-                        data.map(e => <Option key={e.key} value={e.key}>{e.name}</Option>)
-                    }
+            >
+                {
+                    data.map(e => <Option key={e.key} value={e.key}>{e.name}</Option>)
+                }
 
-                </Select>
+            </Select>
         );
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(GovSelectorComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(GovSelectorComponent);

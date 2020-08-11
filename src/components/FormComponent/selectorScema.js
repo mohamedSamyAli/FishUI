@@ -1,5 +1,47 @@
 
 const schema = {
+    plantlt:{
+        endPoint:"plantlt", 
+        config:{
+            // mode:"multiple"
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.plantId,
+                    name:e.plantName
+                }
+            })
+        }
+    },
+    soiltypelt:{
+        endPoint:"soiltypelt", 
+        config:{
+            // mode:"multiple"
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.stypeId,
+                    name:e.stypeName
+                }
+            })
+        }
+    },
+    winddirectionlt:{
+        endPoint:"winddirectionlt", 
+        config:{
+            // mode:"multiple"
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.wdId,
+                    name:e.wdName
+                }
+            })
+        }
+    },
     gafard:{
         endPoint:"gov/", 
         config:{
@@ -22,6 +64,19 @@ const schema = {
                 return {
                     key:e.govId,
                     name:e.govName
+                }
+            })
+        }
+    },
+    lakegov:{
+        endPoint:"lake/", 
+        config:{
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.lakeId,
+                    name:e.lakeName
                 }
             })
         }

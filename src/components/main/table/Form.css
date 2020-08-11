@@ -5,6 +5,9 @@
     align-items: center;
     padding: 2rem 1rem 2rem;
 }
+.ant-col.ant-form-item-label.ant-col-rtl{
+    width: 100%;
+}
 .editForm__container .ant-btn{
     align-self: flex-end;
     margin: 1rem 6rem 0rem;
@@ -63,3 +66,18 @@ p{
 .form__sectionDivider .ant-divider-horizontal {
     margin: 24px 0 10px;
 }
+.ant-form-rtl .ant-form-item-label {
+    text-align: right !important;
+}
+.ant-col.ant-form-item-control div,.ant-col.ant-form-item-control{
+width: 100% !important;
+}
+
+
+
+
+
+
+
+
+

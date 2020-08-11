@@ -9,7 +9,8 @@ import './table.css';
 import './Form.css';
 import './inputField.css'
 import GenaricForm from '../../Tables/GenaricForm';
-import LakeQV from '../../../FormDescription/Com_Form/LakeQV';
+import LakeQV from '../../../FormDescription/Com_Form/LakeQS';
+import '../../../FormDescription/Com_Form/collapse.css'
 
 var $ = require("jquery");
 
@@ -139,7 +140,7 @@ class GenaricTable extends Component {
         const { visible, confirmLoading } = this.state;
         const { filters, button, columns, data } = this.props
         return (
-            <>
+            <div>
 
 
                 <div className="table__Actions">
@@ -156,7 +157,6 @@ class GenaricTable extends Component {
                     scroll={{ x: 'max-content', y: 250 }} />
                 {visible && (
                     <ModelComponent hideModal={this.handleCancel} title=" إضافة وظيفة جديد" visible={visible}>
-                       <div className="doubleCellForm__wrapper">
 
                         <Form className="form_container"
                             ref={el => { myForm = el }}
@@ -173,10 +173,9 @@ class GenaricTable extends Component {
              </Button>
                             </Form.Item>
                         </Form>
-                            </div>
                     </ModelComponent>
                 )}
-            </>
+            </div>
 
         );
     }

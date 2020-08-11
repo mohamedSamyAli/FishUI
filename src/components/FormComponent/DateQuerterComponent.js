@@ -20,7 +20,7 @@ const DateQuerterComponent = (props) => {
     }
 
     return (
-        <div style={{display:"flex"}}>
+        <div style={{display:"flex" ,flexDirection:'column'}}>
             <DatePicker onChange={DateChange} />
             <p>{Quarter}</p>
         </div>

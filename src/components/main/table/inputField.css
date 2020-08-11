@@ -44,7 +44,7 @@ input:focus + .ant-form-item-label {
     border-bottom: 1.2px solid var(--color-gray-dark-3);
 }
 .ant-form .ant-row-rtl {
-    margin: .5rem 0rem 1.2rem;
+    margin: 0.7rem 8rem 0.7rem;
 }
 .ant-col .ant-form-item-control{
     height: 3.5rem;
@@ -106,3 +106,4 @@ input:focus + .ant-form-item-label {
 .editable__table .ant-table-thead > tr > th, .ant-table-tbody > tr > td, .ant-table tfoot > tr > th, .ant-table tfoot > tr > td {
     padding: 5px 10px;
 }
+
