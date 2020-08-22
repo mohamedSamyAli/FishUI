@@ -75,7 +75,11 @@ width: 100% !important;
 
 
 
-
+.Htable{
+    border-bottom: hidden;
+    border-top: hidden;
+    border-left: hidden;
+}
 
 
 

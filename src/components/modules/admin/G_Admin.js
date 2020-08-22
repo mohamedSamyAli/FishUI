@@ -2,7 +2,8 @@ import React  from 'react';
 import schema from "../../../TableDescription" 
 import GenaricTable from '../../main/table/GenaricTable';
 const G_Admin= (props) => {
-debugger
+
+
     return(
         <>
          <div className="main__wrapper">

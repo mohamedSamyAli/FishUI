@@ -14,7 +14,7 @@ const CollapseSections = ({sections}) => {
         <Collapse defaultActiveKey={['0']} onChange={callback}>
             {
                 sections.map( (section, indx) =>{
-                    return <Panel className={section.error?"Error_Found":''}
+                    return <Panel accordion={true} className={section.error?"Error_Found":''}
                         header={section.header} key={indx} >
                        {section.content}
                         </Panel>

@@ -12,7 +12,7 @@ const SelectSections = ({sections}) => {
         <Collapse className="checkbox__collapsable-groups" defaultActiveKey={['0']} onChange={callback}>
             {
                 sections.map( (section, indx) =>{
-                    return <Panel header={section.header} key={indx} >
+                    return <Panel accordion={true} header={section.header} key={indx} >
                         <Form.Item 
                             name={`checkbox-${section.name}`}>
                             <Checkbox.Group>

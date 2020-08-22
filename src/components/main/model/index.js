@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal } from 'antd';
+import { Modal, Button } from 'antd';
 import './model.css';
 
 const ModelComponent = (props) => {
@@ -23,9 +23,17 @@ const ModelComponent = (props) => {
         <Modal
           title={props.title}
           visible={props.visible}
-          onOk={handleOk}
+          onOk={props.onOk}
           confirmLoading={confirmLoading}
           onCancel={()=>props.hideModal()}
+          footer={[
+            <Button key="back" onClick={props.hideModal}>
+              Return
+            </Button>,
+            <Button key="submit" type="primary" onClick={props.onOk}>
+              Submit
+            </Button>,
+          ]}
         >
           {props.children}
         </Modal>

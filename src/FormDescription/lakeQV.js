@@ -57,7 +57,8 @@ const schema = [
             rules: [
                 ({ getFieldValue ,setFieldsValue}) => ({
                     validator(rule, value) {
-                        debugger
+                        
+
                         let temp =parseInt(getFieldValue('uarea'))
                         value = parseInt(value)?parseInt(value):0
                         setFieldsValue({unarea:-temp+value})
@@ -79,7 +80,8 @@ const schema = [
             rules: [
                 ({ getFieldValue ,setFieldsValue}) => ({
                     validator(rule, value) {
-                        debugger
+                        
+
                         let temp =parseInt(getFieldValue('tarea'))
                         value = parseInt(value)?parseInt(value):0
                         setFieldsValue({unarea:temp-value})

@@ -44,7 +44,7 @@ export default class LakeQV extends Component {
                 </Form.Item>
                 <Collapse className="checkbox__collapsable-groups" defaultActiveKey={['0']}>
                 
-                <Panel header="المساحات" key="المساحات" >
+                <Panel accordion={true} header="المساحات" key="المساحات" >
 
                 <Form.Item
                     name="tarea"
@@ -53,7 +53,8 @@ export default class LakeQV extends Component {
                     rules={[
                         ({ getFieldValue, setFieldsValue }) => ({
                             validator(rule, value) {
-                                debugger
+                                
+
                                 let temp = parseInt(getFieldValue('uarea'))
                                 value = parseInt(value) ? parseInt(value) : 0
                                 setFieldsValue({ unarea: -temp + value })
@@ -73,7 +74,8 @@ export default class LakeQV extends Component {
                     rules={[
                         ({ getFieldValue, setFieldsValue }) => ({
                             validator(rule, value) {
-                                debugger
+                                
+
                                 let temp = parseInt(getFieldValue('tarea'))
                                 value = parseInt(value) ? parseInt(value) : 0
                                 setFieldsValue({ unarea: temp - value })
@@ -94,7 +96,7 @@ export default class LakeQV extends Component {
                 </Form.Item>
                 </Panel>
 
-                <Panel header="وحدات الصيد" key="وحدات الصيد" >
+                <Panel accordion={true} header="وحدات الصيد" key="وحدات الصيد" >
                 <Form.Item
                     name='boatD'
                     label="درجة المركب"

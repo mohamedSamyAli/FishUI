@@ -3,7 +3,6 @@ const schema = {
     plantlt:{
         endPoint:"plantlt", 
         config:{
-            // mode:"multiple"
         },
         parser:(data)=>{
             return data.map(e=>{
@@ -17,7 +16,6 @@ const schema = {
     soiltypelt:{
         endPoint:"soiltypelt", 
         config:{
-            // mode:"multiple"
         },
         parser:(data)=>{
             return data.map(e=>{
@@ -31,7 +29,6 @@ const schema = {
     winddirectionlt:{
         endPoint:"winddirectionlt", 
         config:{
-            // mode:"multiple"
         },
         parser:(data)=>{
             return data.map(e=>{
@@ -45,7 +42,6 @@ const schema = {
     gafard:{
         endPoint:"gov/", 
         config:{
-            // mode:"multiple"
         },
         parser:(data)=>{
             return {
@@ -57,7 +53,6 @@ const schema = {
     gov:{
         endPoint:"gov", 
         config:{
-            // mode:"multiple"
         },
         parser:(data)=>{
             return data.map(e=>{
@@ -84,7 +79,6 @@ const schema = {
     fisherDesk:{
         endPoint:"fisherydisk/",
         config:{
-            // mode:"multiple"
         },
         parser:(data)=>{
             return data.map(e=>{
@@ -98,7 +92,6 @@ const schema = {
     markaz:{
         endPoint:"markaz/",
         config:{
-            // mode:"multiple"
         },
         parser:(data)=>{
             return data.map(e=>{
@@ -165,6 +158,90 @@ const schema = {
                 return {
                     key:e.fisherwayId,
                     name:e.fisherwayName
+                }
+            })
+        } 
+    },
+    fisherway12:{
+        endPoint:"Fisherway",
+        config:{},
+        parser:(data)=>{
+            return data.filter(e=> e.fisherwayType==1||e.fisherwayType==3).map(e=>{
+                return {
+                    key:e.fisherwayId,
+                    name:e.fisherwayName
+                }
+            })
+        } 
+    },
+    portchoicelt:{
+        endPoint:"portchoicelt",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.pchId,
+                    name:e.pchName
+                }
+            })
+        } 
+    },
+    porttypelt:{
+        endPoint:"porttypelt",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.portTypeId,
+                    name:e.portTypeName
+                }
+            })
+        } 
+    },
+    port:{
+        endPoint:"port",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.portId,
+                    name:e.portName
+                }
+            })
+        } 
+    },
+    boatmateriallt:{
+        endPoint:"boatmateriallt",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.boatMaterialId,
+                    name:e.boatMaterialName
+                }
+            })
+        } 
+    },
+    boattypelt:{
+        endPoint:"boattypelt",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.boatTypelId,
+                    name:e.boatTypeName
+                }
+            })
+        } 
+    },
+    species:{
+        endPoint:"Species",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.bspeciesId,
+                    name:e.speciesName
                 }
             })
         } 

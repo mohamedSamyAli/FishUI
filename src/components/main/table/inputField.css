@@ -43,6 +43,9 @@ input:focus + .ant-form-item-label {
     border: none;
     border-bottom: 1.2px solid var(--color-gray-dark-3);
 }
+td .ant-row-rtl{
+    margin: 2px !important;
+}
 .ant-form .ant-row-rtl {
     margin: 0.7rem 8rem 0.7rem;
 }

@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import { Table, Space, Form, Button } from 'antd';
+import { Table, Space, Form, Button, Modal } from 'antd';
 import { baseURl } from '../../../URLS';
 import { Plus } from 'react-feather';
 import ButtonComponent from '../button'
 import TableAction from './tableActions';
 import ModelComponent from '../model';
+import '../model/model.css';
 import './table.css';
 import './Form.css';
 import './inputField.css'
 import GenaricForm from '../../Tables/GenaricForm';
-import LakeQV from '../../../FormDescription/Com_Form/LakeQS';
+import LakeQV from '../../../FormDescription/Com_Form/Rent';
 import '../../../FormDescription/Com_Form/collapse.css'
-
 var $ = require("jquery");
 
 const axios = require('axios');
 let myForm = {}
+let setForm
 class GenaricTable extends Component {
     constructor(props) {
         console.log("jjjj", $)
@@ -84,12 +85,13 @@ class GenaricTable extends Component {
         this.showModal()
     }
     showModal = () => {
-        debugger
         this.setState({
             visible: true,
         });
     };
     handleOk = () => {
+        myForm.submit()
+        console.log(myForm)
     };
     solve = (...data) => {
         let temp = []
@@ -103,11 +105,10 @@ class GenaricTable extends Component {
         })
     }
     onFinish = (e) => {
-        console.log(myForm)
+        //console.log(myForm)
         console.log(e)
     }
     handleCancel = () => {
-        console.log('Clicked cancel button');
         this.setState({
             visible: false,
         });
@@ -129,7 +130,8 @@ class GenaricTable extends Component {
             this.setState({ data: this.props.schema.data(this.props.data) })
         }
     }
-    onFormChange = () => {
+    onFormChange = (e) => {
+        console.log(">>>>>>>",e)
         if (this.props.schema.formTriger) {
             this.props.schema.formTriger.forEach(e => {
                 e(myForm)
@@ -141,8 +143,6 @@ class GenaricTable extends Component {
         const { filters, button, columns, data } = this.props
         return (
             <div>
-
-
                 <div className="table__Actions">
                     <ButtonComponent action={this.onClickAdd} bgcolor="primary" txcolor="white" type="primary">
                         <div className="center__item" >
@@ -156,52 +156,51 @@ class GenaricTable extends Component {
                     dataSource={this.state.data}
                     scroll={{ x: 'max-content', y: 250 }} />
                 {visible && (
-                    <ModelComponent hideModal={this.handleCancel} title=" إضافة وظيفة جديد" visible={visible}>
 
-                        <Form className="form_container"
+                    <Modal
+                        // width="95%"
+                        title="Title"
+                        visible={visible}
+                        onOk={this.handleOk}
+                        confirmLoading={confirmLoading}
+                        onCancel={this.handleCancel}
+                    >
+                        <Form
                             ref={el => { myForm = el }}
                             onFieldsChange={this.onFormChange}
                             name="validate_other"
                             onFinish={this.onFinish}
                             initialValues={this.state.initialValues}
-                            >
-                            <LakeQV/>
+                        >
+                            <LakeQV setForm={setForm} />
                             {/* <GenaricForm schema={this.props.schema.formSchema} /> */}
-                            <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-                                <Button type="primary" htmlType="submit" onClick={() => { console.log("smsm") }}>
-                                    Submit
-             </Button>
-                            </Form.Item>
+
                         </Form>
-                    </ModelComponent>
+                    </Modal>
+                    //         <ModelComponent hideModal={this.handleCancel} 
+                    //         onOk={this.handleOk}
+                    //         title=" إضافة وظيفة جديد" visible={visible}>
+
+                    //             <Form className="form_container"
+                    //                 ref={el => { myForm = el }}
+                    //                 onFieldsChange={this.onFormChange}
+                    //                 name="validate_other"
+                    //                 onFinish={this.onFinish}
+                    //                 initialValues={this.state.initialValues}
+                    //                 >
+                    //                 <LakeQV/>
+                    //                 {/* <GenaricForm schema={this.props.schema.formSchema} /> */}
+                    //                 <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
+                    //                     <Button type="primary" htmlType="submit" onClick={() => {  }}>
+                    //                         Submit
+                    //  </Button>
+                    //                 </Form.Item>
+                    //             </Form>
+                    //         </ModelComponent>
                 )}
             </div>
-
         );
     }
 }
 
 export default GenaricTable;
-// <Modal
-//     width="95%"
-//     title="Title"
-//     visible={visible}
-//     onOk={this.handleOk}
-//     confirmLoading={confirmLoading}
-//     onCancel={this.handleCancel}
-// >
-//     <Form
-//         ref={el => { myForm = el }}
-//         onFieldsChange={this.onFormChange}
-//         name="validate_other"
-//         onFinish={this.onFinish}
-//         initialValues={this.state.initialValues}
-//     >
-//         <GenaricForm schema={this.props.schema.formSchema} />
-//         <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
-//             <Button type="primary" htmlType="submit" onClick={() => { console.log("smsm") }}>
-//                 Submit
-//              </Button>
-//         </Form.Item>
-//     </Form>
-// </Modal>

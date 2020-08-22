@@ -13,7 +13,14 @@ const store = createStore(reducer);
 
 ReactDOM.render(
   <React.StrictMode>
-     <ConfigProvider direction="rtl" locale={ar_EG}>
+    <ConfigProvider
+      getPopupContainer={node => {
+        if (node) {
+          return node.parentNode;
+        }
+        return document.body;
+      }}
+      direction="rtl" locale={ar_EG}>
       <Provider store={store} >
         <App />
       </Provider>

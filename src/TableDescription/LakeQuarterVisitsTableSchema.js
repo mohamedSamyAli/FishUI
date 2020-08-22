@@ -144,6 +144,7 @@ const visit = {
             title: 'اسم البحيره',
             dataIndex: ['lakeQuarter', 'lake', 'lakeName'],
             key: 'lakeName',
+            width:"10rem"
         },
         {
             title: 'المحافظه',

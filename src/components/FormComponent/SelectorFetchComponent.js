@@ -25,10 +25,11 @@ class GovSelectorComponent extends Component {
                 if (Array.isArray(temp)) {
                     this.setState({ data: temp })
                 } else {
-                    temp = [temp];
-                    this.props.onChange(temp[0].key)
-                    console.log(">>>>>>>>>>>>>>>>>>>>>>", temp[0].key)
-                    this.setState({ data: temp, defValue: temp[0].key })
+                    // temp = [temp];
+                    // this.props.onChange(temp[0].key)
+                    this.props.onChange(temp.key)
+                    console.log(">>>>>>>>>>>>>>>>>>>>>>", temp.key)
+                    this.setState({ data: [temp], defValue: temp.key })
                 }
                 console.log(response.data)
             })
@@ -50,7 +51,8 @@ class GovSelectorComponent extends Component {
     }
     componentDidMount() {
 
-        debugger
+        
+
         if (this.props.ChildE) {
             this.props[this.props.parentE][this.props.ChildE] = this.fetchData
         } else {
@@ -67,6 +69,7 @@ class GovSelectorComponent extends Component {
         const { data, defValue } = this.state
         return (
             <Select
+                //  defaultValue = {defValue}
                 {...schema[this.props.entity].config}
                 showSearch
                 style={{ width: 200 }}
@@ -76,6 +79,8 @@ class GovSelectorComponent extends Component {
                 }
                 {...this.props}
                 onChange={this.ChangeTriger}
+                //dropdownStyle = {{ position: "fixed" }}
+                // getPopupContainer={trigger => { console.log(trigger);  return trigger.parentNode}}
             >
                 {
                     data.map(e => <Option key={e.key} value={e.key}>{e.name}</Option>)
