@@ -30,8 +30,12 @@ const AdminPage = () => {
             to: 'skills'
         },
         {
+            name: 'إدارة الجمعيات',
+            to: 'assoc'
+        },
+        {
             name: 'إدارة الاصناف',
-            to: 'types'
+            to: 'Species'
         },
         {
             name: 'إدارة مناطق الثروة السمكية',
@@ -73,7 +77,15 @@ const AdminPage = () => {
                         <Route path="/admin/jobs">
                             <G_Admin key="5" name="Job" />
                         </Route>
-
+                        <Route path="/admin/assoc">
+                            <G_Admin key="6" name="assoc" />
+                        </Route>
+                        <Route path="/admin/documents">
+                            <G_Admin key="7" name="actionLog" />
+                        </Route>
+                        <Route path="/admin/Species">
+                            <G_Admin key="8" name="Species" />
+                        </Route>
                         <Route path="/admin">
                             <AdminBasic />
                         </Route>

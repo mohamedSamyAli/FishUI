@@ -28,19 +28,23 @@ const DiscriptivePage = () => {
         },
         {
             name : 'إستمارة بيانات المزارع السمكية',
-            to : '--'
+            to : 'FarmQ'
         },
         {
             name : 'إستمارة بيانات المفرخات السمكية',
-            to : '---'
+            to : ''
         },
         {
             name : 'إستمارة الماه البحرية',
-            to : '----'
+            to : 'SW'
+        },
+        {
+            name : 'إستمارة  العقود',
+            to : "Contract"
         },
         {
             name : 'إستمارة بيانات الموانئ | نقط سروح',
-            to : '-----'
+            to : 'port'
         }
     ]
     return ( 
@@ -57,6 +61,18 @@ const DiscriptivePage = () => {
                     </Route>
                     <Route exact path="/descriptive/lakeWater">
                     <G_Admin key="2" name="lakeQS" />
+                    </Route>
+                    <Route exact path="/descriptive/FarmQ">
+                    <G_Admin key="3" name="FarmQ" />
+                    </Route>
+                    <Route exact path="/descriptive/sw">
+                    <G_Admin key="4" name="Port" />
+                    </Route>
+                    <Route exact path="/descriptive/port">
+                    <G_Admin key="5" name="PortQ" />
+                    </Route>
+                    <Route exact path="/descriptive/Contract">
+                    <G_Admin key="6" name="Contract" />
                     </Route>
                     <Route path="/descriptive">
                         <DescriptiveBasic/>

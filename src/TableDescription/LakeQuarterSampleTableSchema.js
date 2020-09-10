@@ -2,8 +2,10 @@ import { Table, Tag, Space } from 'antd';
 import React, { Component } from 'react';
 import GenaricTable from '../components/main/table/GenaricTable'
 import ModalComponent from '../components/ModalComponent';
+import formSchema from "../FormDescription/Com_Form/LakeQS"
 
 const sample = {
+    formSchema,
     endPoint: "lakesample",
     data: (data) => {  
         return data.map((e, i) => {
@@ -74,6 +76,7 @@ const sample = {
 
 
 const visit = {
+    formSchema,
     endPoint: "lakevisitsample",
     data: (data) => {
         
@@ -126,6 +129,7 @@ const visit = {
     ]
 }
 const schema = {
+    formSchema,
     endPoint: "lakequartersamples",
     //endPoint:"lakequarter",
     data: (data) => {

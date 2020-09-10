@@ -12,7 +12,6 @@ const { Item } = Form
 const CustomSelector = (props)=>{
     return (
         <Select
-        
                 showSearch
                 style={{ width: 200 }}
                 optionFilterProp="children"
@@ -28,7 +27,7 @@ const CustomSelector = (props)=>{
 }
 
 
-export default function Port() {
+const Port=(props) => {
     return (
         <div  className="collapsable__Sections">
 
@@ -97,7 +96,7 @@ export default function Port() {
                 <Panel accordion={true} header=" المساحات وموعد التشغيل " key='المساحات' >
 
                     <Item
-                        name='totalArea'
+                        name='totalArea1'
                         label=" المساحه الكليه بالمتر المربع"
                     >
                         <Input type="number" />
@@ -124,19 +123,19 @@ export default function Port() {
                         <Input type="number" />
                     </Item>
                     <Item
-                        name='platformlengthNumber'
+                        name='platformlengthNumber1'
                         label="مجموع طول الارصفه بالمتر"
                     >
                         <Input type="number" />
                     </Item>
                     <Item
-                        name='platformlengthNumber'
+                        name='platformlengthNumber2'
                         label="الاعماق حد ادنى بالمتر"
                     >
                         <Input type="number" />
                     </Item>
                     <Item
-                        name='platformlengthNumber'
+                        name='platformlengthNumber3'
                         label="الاعماق حد اقصي بالمتر"
                     >
                         <Input type="number" />
@@ -162,61 +161,61 @@ export default function Port() {
                 </Panel>
                 <Panel accordion={true} header="البنيه الأساسيه المتوفرة" >
                 <Item
-                name="WT"
+                name="WT5"
                 label="شبكة المياه"
                 >
                 <CustomSelector/>
                 </Item>
                 <Item
-                name="WT"
+                name="WT6"
                 label="شبكة الكهرباء"
                 >
                 <CustomSelector/>
                 </Item>
                 <Item
-                name="WT"
+                name="WT7"
                 label="شبكة صرف صحى"
                 >
                 <CustomSelector/>
                 </Item>
                 <Item
-                name="WT"
+                name="WT8"
                 label="غاز طبيعي"
                 >
                 <CustomSelector/>
                 </Item>
                 <Item
-                name="WT"
+                name="WT9"
                 label="عدد محطات الوقود"
                 >
                     <Input type="number"/>
                 </Item>
                 <Item
-                name="WT"
+                name="WT11"
                 label="عدد مصانع الثلج"
                 >
                     <Input type="number"/>
                 </Item>
                 <Item
-                name="WT"
+                name="WT12"
                 label="عدد المخازن الكلى "
                 >
                     <Input type="number"/>
                 </Item>
                 <Item
-                name="WT"
+                name="WT13"
                 label="عدد المخازن المستغل "
                 >
                     <Input type="number"/>
                 </Item>
                 <Item
-                name="WT"
+                name="WT14"
                 label="عدد القزق"
                 >
                     <Input type="number"/>
                 </Item>
                 <Item
-                name="WT"
+                name="WT15"
                 label="المساحات الموجودة بالميناء و التي لم تستغل و يمكن إستغلالها بالمتر المربع"
                 >
                     <Input type="number"/>
@@ -242,25 +241,25 @@ export default function Port() {
                 </Panel>
                 <Panel accordion={true} header="خطط الوقايه من" key="safetyPaln">
                 <Item
-                name="WT"
+                name="WT4"
                 label="التلوث بالزيت"
                 >
                 <SelectorFetchComponent entity="portchoicelt" />
                 </Item>
                 <Item
-                name="WT"
+                name="WT3"
                 label="امكانية التخلص من المخلفات الصلبه"
                 >
                 <SelectorFetchComponent entity="portchoicelt" />
                 </Item>
                 <Item
-                name="WT"
+                name="WT2"
                 label="امكانية التخلص من الزيوت المرتجعه من المراكب"
                 >
                 <SelectorFetchComponent entity="portchoicelt" />
                 </Item>
                 <Item
-                name="WT"
+                name="WT1"
                 label="الحريق"
                 >
                 <SelectorFetchComponent entity="portchoicelt" />
@@ -271,3 +270,4 @@ export default function Port() {
         </div>
     )
 }
+export default Port

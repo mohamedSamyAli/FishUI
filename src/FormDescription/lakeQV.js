@@ -22,7 +22,7 @@ const schema = [
             label: "المحافظه",
             rules: [{ required: true, message: `ادخل المحافظه` }]
         },
-        render: (props) => <GovSelectorComponent parentE="GovEvents"  entity='gov' {...props} />
+        render: (props) =><GovSelectorComponent parentE="GovEvents"  entity='gov' {...props} />
     },
     {
         config: {
@@ -30,7 +30,7 @@ const schema = [
             label: "المركز",
             rules: [{ required: true, message: `ادخل المحافظه` }]
         },
-        render: (props) => <GovSelectorComponent ChildE="markaz" parentE="GovEvents" entity='markaz' {...props} />
+        render: (props) => <GovSelectorComponent ChildE="markaz" parentE="GovEvents" entity='markaz' {...props}/>
     },
     ,
     {

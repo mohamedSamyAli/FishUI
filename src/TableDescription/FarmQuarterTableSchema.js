@@ -2,6 +2,7 @@ import { Table, Tag, Space } from 'antd';
 import React, { Component } from 'react';
 import GenaricTable from '../components/main/table/GenaricTable'
 import ModalComponent from '../components/ModalComponent';
+import formSchema  from "../FormDescription/Com_Form/FarmVS"
 
 
 const sample = {
@@ -22,14 +23,10 @@ const sample = {
             dataIndex: 'visitCount',
             key: 'visitCount',
             fixed: 'left',
-
-
         },
         {
             title: 'طباعه',
             dataIndex: "fvVisitId",
-
-
         },
         {
             title: 'حذف',
@@ -88,14 +85,10 @@ const visit = {
             key: 'visitCount',
             fixed: 'left',
             render: (text, record) => { return (<ModalComponent><GenaricTable schema={{ ...sample, endPoint: sample.endPoint + "/" + record.fvisitCode }} /></ModalComponent>) }
-
-
         },
         {
             title: 'كود الزياره',
             dataIndex: "fvVisitId",
-
-
         },
         {
             title: 'الربع السنوي',
@@ -158,6 +151,7 @@ const visit = {
 
 
 const schema = {
+    formSchema,
     endPoint:"farmquarter",
     //endPoint:"lakequarter",
     data: (data)=> {

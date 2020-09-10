@@ -67,11 +67,12 @@ const RegisterPage = () => {
                                         rules= {[{ required: true, message: 'Please input your password!' }]}
                                         ></InputField>
                                 <InputField
+                                        type="password"
                                         key="2"
                                         label="كلمة السر"
                                         name="userPass"
                                         rules= {[{ required: true, message: 'Please input your password!' }]}
-                                    ></InputField>
+                                    ></InputField >
                             
                        
                         <ButtonComponent type={button.action || ''} bgcolor="primary" txcolor="white"

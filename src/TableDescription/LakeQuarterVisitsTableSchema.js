@@ -3,11 +3,10 @@ import React, { Component } from 'react';
 import GenaricTable from '../components/main/table/GenaricTable'
 import ModalComponent from '../components/ModalComponent';
 import TableSchema from '../TableDescription'
-import formSchema ,{formTriger} from "../FormDescription/lakeQV"
+import formSchema  from "../FormDescription/Com_Form/LakeQV"
 
 
 const boats = {
-    formTriger,
     endPoint: "lakeboat",
     data: (data) => {
         console.log(data)

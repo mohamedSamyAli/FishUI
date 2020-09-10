@@ -10,7 +10,7 @@ const InputField = (props) => {
             name= {props.name}
             rules={[...props.rules]}
         >
-            <Input />
+            <Input  type={props.type}/>
         </Form.Item>
         </>
       );

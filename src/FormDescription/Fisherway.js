@@ -8,8 +8,6 @@ const { Option } = Select;
 
 const schema = [
     gettextField("fisherwayName"," الاسم ",true),
-    
-    
         {
             config:{
                 label:'تابعه لى',

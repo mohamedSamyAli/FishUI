@@ -9,8 +9,7 @@ import SpProdutionComponent from '../../components/FormComponent/SpProdutionComp
 import FSDT from './FSDT'
 const { Panel } = Collapse;
 const { Item } = Form
-export default class LakeQS extends Component {
-    render() {
+ const FarmVS = (props)=>  {
         return (
             <div className="collapsable__Sections">
 
@@ -18,11 +17,30 @@ export default class LakeQS extends Component {
 
                     <Panel accordion={true} header="معلومات عامه" key='232'>
 
+                    <Item
+                            name="mok32"
+                            label="كود المزرعه"
+                        >
+                            <Input></Input>
+                        </Item>
+
                         <Item
                             name="date"
                             label="التاريخ"
                         >
                             <DateQuerterComponent />
+                        </Item>
+                        <Item
+                            name="mok13"
+                            label="اسم صاحب المزرعه"
+                        >
+                            <Input></Input>
+                        </Item>
+                        <Item
+                            name="mok13"
+                            label="اسم المزرعه"
+                        >
+                            <Input></Input>
                         </Item>
                         <Item
                             name='userGovId'
@@ -32,9 +50,8 @@ export default class LakeQS extends Component {
                             <SelectorFetchComponent parentE="GovEvents" entity='gov' />
                         </Item>
                         <Item
-                            label='اسم البحيره/نهر النيل/مفيض توشكي/قناة السويس'
+                            label='اسم البحيرة'
                             name="lakegov"
-                            rules={[{ required: true, message: `مطلوب` }]}
                         >
                             <SelectorFetchComponent ChildE="lakegov" parentE="GovEvents" entity='lakegov' />
                         </Item>
@@ -53,21 +70,21 @@ export default class LakeQS extends Component {
                         </Item>
                         <Item
                             name='gafard'
-                            label="المنطقه"
+                            label="منطقة الثروه السمكيه"
                             rules={[{ required: true, message: `ادخل المنطقه` }]}
                         >
-                            <SelectorFetchComponent ChildE="fisherDesk" parentE="GovEvents" entity='fisherDesk' />
+                            <SelectorFetchComponent ChildE="fisherDesk" parentE="GovEvents" entity='gafard' />
                         </Item>
                         <Item
                             name="ٍSampleN"
-                            label="رقم العينه كود المحطه"
+                            label="الوظيفه"
                         >
-                            <Input type="number" />
+                            <Input />
                         </Item>
-                        
                         <Item
-                            name="mok3"
-                            label="العلامات الارضيه ان وجدت"
+                            name="mok32"
+                            label="رقم البطاقه"
+                            rules={[{max:14},{type:"number"}]}
                         >
                             <Input />
                         </Item>
@@ -369,4 +386,4 @@ export default class LakeQS extends Component {
             </div>
         )
     }
-}
+    export default FarmVS

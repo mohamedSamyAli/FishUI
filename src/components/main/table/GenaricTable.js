@@ -16,7 +16,7 @@ var $ = require("jquery");
 
 const axios = require('axios');
 let myForm = {}
-let setForm
+let TFC = {}
 class GenaricTable extends Component {
     constructor(props) {
         console.log("jjjj", $)
@@ -52,8 +52,8 @@ class GenaricTable extends Component {
                 key: "actionss",
                 render: (text, record) => (
                     <Space size="middle">
-                        {this.schema.update ? null : <TableAction type="edit" onClick={() => { this.onClickUpdate(record[this.schema.id]) }}></TableAction>}
-                        {this.schema.del ? null : <TableAction type="delete" onClick={() => { this.onClickDelete(record[this.schema.id]) }}></TableAction>}
+                        {this.schema.update ? null : <TableAction type="edit" action={() => { this.onClickUpdate(record[this.schema.id]) }}></TableAction>}
+                        {this.schema.del ? null : <TableAction type="delete" action={() => { this.onClickDelete(record[this.schema.id]) }}></TableAction>}
                     </Space>
                 ),
             }
@@ -61,8 +61,10 @@ class GenaricTable extends Component {
         }
     }
     onClickDelete(id) {
+
         axios.delete(baseURl + this.props.schema.endPoint + "/" + id).then(e => {
             alert("تم المسح")
+            this.fetchData()
         }).catch(e => {
             alert("لم يتم المسح")
         })
@@ -105,6 +107,12 @@ class GenaricTable extends Component {
         })
     }
     onFinish = (e) => {
+        axios.post(baseURl + this.props.schema.endPoint, e, {
+            headers: {
+                'Content-Type': 'application/json',
+
+            }
+        }).then(r => { console.log(r) }).catch(r => { console.log(r) })
         //console.log(myForm)
         console.log(e)
     }
@@ -131,16 +139,17 @@ class GenaricTable extends Component {
         }
     }
     onFormChange = (e) => {
-        console.log(">>>>>>>",e)
-        if (this.props.schema.formTriger) {
-            this.props.schema.formTriger.forEach(e => {
-                e(myForm)
-            })
+        try {
+            TFC.Triger(myForm)
+
+        } catch (error) {
+
         }
     }
     render() {
         const { visible, confirmLoading } = this.state;
-        const { filters, button, columns, data } = this.props
+        const { filters, button, columns, data, formSchema } = this.props
+        let FormSchema = this.props.schema.formSchema
         return (
             <div>
                 <div className="table__Actions">
@@ -172,8 +181,10 @@ class GenaricTable extends Component {
                             onFinish={this.onFinish}
                             initialValues={this.state.initialValues}
                         >
-                            <LakeQV setForm={setForm} />
-                            {/* <GenaricForm schema={this.props.schema.formSchema} /> */}
+                            {/* <FormSchema/> */}
+                            {!Array.isArray(FormSchema) ? <FormSchema TFC={TFC} /> : <GenaricForm schema={FormSchema} />}
+                            {/*<LakeQV setForm={setForm} />*/}
+                            {/*<GenaricForm schema={this.props.schema.formSchema}/>*/}
 
                         </Form>
                     </Modal>

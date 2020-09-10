@@ -14,7 +14,11 @@ const GenaricForm = (props) => {
     const { schema } = props
     return (
     
-    <div>
+        <div className="collapsable__Sections">
+
+        <Collapse className="checkbox__collapsable-groups" defaultActiveKey={['0']}>
+        
+        <Panel disabled  header="معلومات عامه" key="0" >
         {schema.map((e, i) => {
             if (!Array.isArray(e)) {
                 return (
@@ -43,7 +47,8 @@ const GenaricForm = (props) => {
                 )
             }
         })}
-    {/* </Collapse> */}
+        </Panel>
+    </Collapse>
      </div>
     )
 

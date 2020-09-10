@@ -35,7 +35,7 @@ class ModalComponent extends Component {
         </Button>
                 {visible && (<Modal
                     width="95%"
-                    title="Basic Modal"
+                    title=""
                     visible={visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}

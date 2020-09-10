@@ -7,7 +7,11 @@ const { Panel } = Collapse;
 export default class LakeQV extends Component {
     render() {
         return (
-            <div>
+            <div className="collapsable__Sections">
+
+<Collapse className="checkbox__collapsable-groups" defaultActiveKey={['0']}>
+
+<Panel  header="معلومات عامه" key="0" >
                 <Form.Item
                     name="date"
                     lable="التاريخ"
@@ -42,10 +46,8 @@ export default class LakeQV extends Component {
                     >
                     <SelectorFetchComponent ChildE="fisherDesk" parentE="GovEvents" entity='fisherDesk' />
                 </Form.Item>
-                <Collapse className="checkbox__collapsable-groups" defaultActiveKey={['0']}>
-                
+                </Panel>  
                 <Panel accordion={true} header="المساحات" key="المساحات" >
-
                 <Form.Item
                     name="tarea"
                     label="المساحة الكلية للبحيرة (بالفدان)"
@@ -95,13 +97,11 @@ export default class LakeQV extends Component {
                     <Input disabled type="number" />
                 </Form.Item>
                 </Panel>
-
-                <Panel accordion={true} header="وحدات الصيد" key="وحدات الصيد" >
+                <Panel  header="وحدات الصيد" key="وحدات الصيد" >
                 <Form.Item
                     name='boatD'
                     label="درجة المركب"
                     >
-
                     <SelectorFetchComponent entity='boatdegree' />
                 </Form.Item>
                 <Form.Item
@@ -115,7 +115,6 @@ export default class LakeQV extends Component {
                     ["رقم المركب", "اسم المالك", "قيمة استهلاك الشباك", "قيمة استهلاك قارب الصيد", "مصاريف أخرى", "الإنتاج لوحدة الصيد(كجم)", "عدد الصيادين"]
                     ,[true, true, false, false, false, true, false],
                     [null, null])}
-
                 <Form.Item
                     name='ass'
                     label= "اسم الجمعيه"

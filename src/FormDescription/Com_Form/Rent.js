@@ -55,9 +55,39 @@ const RenterLandSelector = (props) => {
 const Rent = (props) => {
     const [type, settype] = useState(1)
     const [ltype, setLtype] = useState(1)
-    let { setForm } = props
-    setForm = (e) => {
-        console.log(e)
+    let { TFC } = props
+    TFC.Triger = ({ getFieldValue, setFieldsValue, getFieldsValue }) => {
+
+        let values = getFieldsValue("*")
+
+        //#region totalPaid
+        let sum = values.paidMonies.reduce(function (a, b) {
+            return parseInt(a) + parseInt(b.value);
+        }, 0);
+        setFieldsValue({ totalPaid: sum ? sum : 0 })
+        //#endregion
+
+
+        //#region totalPrice
+        debugger
+        if (values.hasOwnProperty("sahm")) {
+            let totalArea = parseInt(values.fdan)
+            if(values.sahm || values.kerat){
+                 totalArea += 1 
+            }else{
+
+            }
+            setFieldsValue({ totalPrice: parseFloat(values.unitePrice) * Math.floor(totalArea) })
+
+        } else {
+            setFieldsValue({ totalPrice: parseFloat(values.unitePrice) * parseInt(values.totalArea) })
+
+        }
+      
+
+        //#endregion
+
+
     }
     const onRenterChange = (e) => {
         if (e)
@@ -108,7 +138,7 @@ const Rent = (props) => {
                     </Item>
                     <Item
                         name="annualIncrease"
-                        label="annualIncrease">
+                        label="الزياده السنويه">
                         <Input></Input>
                     </Item>
                     <Item
@@ -130,22 +160,22 @@ const Rent = (props) => {
                     </Item>
                     <Item
                         name="startDate"
-                        label="تاريخ بداية الايجار"                    >
+                        label="تاريخ بداية الايجار">
                         <DatePicker />
                     </Item>
                     <Item
                         name="endDate"
-                        label="تاريخ نهاية الايجار"                    >
+                        label="تاريخ نهاية الايجار">
                         <DatePicker />
                     </Item>
                     <Item
                         name="name"
-                        label="الرقم الارشيفي للعقد"                    >
+                        label="الرقم الارشيفي للعقد">
                         <Input />
                     </Item>
                     <Item
                         name="refId"
-                        label="نسخه مصوره من العقد"                    >
+                        label="نسخه مصوره من العقد">
                         <Upload >
                             <Button>
                                 <UploadOutlined /> Click to upload
@@ -189,7 +219,9 @@ const Rent = (props) => {
                     </Item>
                 </Panel>
                 <Panel accordion={true} header="المبلغ الذى تم تسديده" key='5'>
-                    <Form.List name="paidMonies">
+                    <Form.List name="paidMonies"
+
+                    >
                         {(fields, dn) => {
                             if (fields.length === 0) {
                                 dn.add()
@@ -219,6 +251,25 @@ const Rent = (props) => {
                                                         {...field}
                                                         name={[field.name, 'value']}
                                                         fieldKey={[field.fieldKey, 'value']}
+                                                    // rules={[
+                                                    //     ({ getFieldValue, setFieldsValue }) => ({
+                                                    //         validator(rule, value) {
+
+
+                                                    //             let temp = getFieldValue('paidMonies')
+                                                    //             debugger
+                                                    //             //value = parseInt(value) ? parseInt(value) : 0
+                                                    //             let sum = temp.reduce(function(a, b){
+                                                    //                 return parseInt(a) + parseInt(b.value);
+                                                    //                 }, 0);
+
+                                                    //             setFieldsValue({ totalPaid: sum? sum:0 })
+                                                    //             if (true) {
+                                                    //                 return Promise.resolve();
+                                                    //             }
+                                                    //             // return Promise.reject('المساحه المستخدمه اكبر من المساحه الكليه');
+                                                    //         },
+                                                    //     })]}
                                                     >
                                                         <Input type="number" />
                                                     </Form.Item>
@@ -255,16 +306,17 @@ const Rent = (props) => {
                                             <PlusOutlined /> إضافة صف
                                         </Button>
                                     </Form.Item>
-                                    <Item
-                                        name="total"
-                                        label="اجمالى المبالغ المدفوعه"
-                                    >
-                                        <Input />
-                                    </Item>
                                 </div>
                             );
                         }}
                     </Form.List>
+                    <Item
+                        name="totalPaid"
+                        label="اجمالى المبالغ المدفوعه"
+
+                    >
+                        <Input disabled />
+                    </Item>
                 </Panel>
                 <Panel accordion={true} header="الأموال المستحقه وغرامة التأخير" key='6'>
                     <Item
@@ -292,8 +344,8 @@ const Rent = (props) => {
                                     <table id="dataTable" name="dataTable" width="600" border="1">
                                         <tr>
                                             <td align="center" bgcolor="#c6c4c4" ><label style={{ fontSize: "14px", fontWeight: "bold" }}>التاريخ</label></td>
-                                            <td align="center" bgcolor="#c6c4c4"><label style= {{ fontSize: "14px", fontWeight: "bold"  }}>رقم القرار</label></td>
-                                            <td align="center" bgcolor="#c6c4c4"><label style= {{ fontSize: "14px", fontWeight: "bold"  }}>الغاء القرار</label></td>
+                                            <td align="center" bgcolor="#c6c4c4"><label style={{ fontSize: "14px", fontWeight: "bold" }}>رقم القرار</label></td>
+                                            <td align="center" bgcolor="#c6c4c4"><label style={{ fontSize: "14px", fontWeight: "bold" }}>الغاء القرار</label></td>
                                         </tr>
                                         {fields.map((field, i) => (
                                             <tr>
@@ -321,9 +373,10 @@ const Rent = (props) => {
                                                         name={[field.name, 'canceld']}
                                                         fieldKey={[field.fieldKey, 'canceld']}
                                                         valuePropName="checked"
-                                                        //rules={[{ required: true, message: 'Missing first name' }]}
+                                                        normalize={(v) => v ? 1 : 0}
+                                                    //rules={[{ required: true, message: 'Missing first name' }]}
                                                     >
-                                                        <Checkbox/>
+                                                        <Checkbox />
                                                     </Form.Item>
                                                 </td>
                                                 <td className="Htable">
@@ -364,12 +417,13 @@ const Rent = (props) => {
                         name="basicPrice"
                         label="سعر اساسى"
                     >
-                        <Input type="number"/>
+                        <Input type="number" />
                     </Item>
                     <Item
                         name="managerialBlock"
                         label="حجز إدارى"
                         valuePropName="checked"
+                        normalize={(v) => v ? 1 : 0}
                     >
                         <Checkbox />
                     </Item>

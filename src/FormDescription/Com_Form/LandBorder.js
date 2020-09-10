@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react'
+import {  } from 'module'
 import { Form, Input, Collapse, Upload, Button, DatePicker, Select, Divider } from 'antd'
 const { Panel } = Collapse;
 const { Option } = Select;
@@ -7,13 +8,14 @@ const { Item } = Form
 export default function LandBorder() {
     return (
         <table width="700" border="1" align="right">
+            
             <tr name="row0">
-                <th scope="col"><label style={{fontSize:"18px",fontWeight:"bolder"}}></label></th>
-                <th scope="col"><label style={{fontSize:"18px",fontWeight:"bolder"}}>الطول</label></th>
+                <th scope="col"><label style={{fontSize:"18px",fontWeight:"bolder"}}>الحدود</label></th>
                 <th scope="col"><label style={{fontSize:"18px",fontWeight:"bolder"}}>الجار</label></th>
+                <th scope="col"><label style={{fontSize:"18px",fontWeight:"bolder"}}>الطول (بالمتر)</label></th>
             </tr>
             <tr name="row1">
-                <td align="right"><label style={{ fontSize: "14px", fontWeight: " bolder" }}>الشمال</label></td>
+                <td align="right"><label style={{ fontSize: "14px", fontWeight: " bolder" }}>الشمال </label></td>
                 <td align="right">
                     <Item
                     name="northL" 

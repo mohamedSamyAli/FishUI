@@ -1,9 +1,11 @@
 import { Table, Tag, Space } from 'antd';
 import React, { Component } from 'react';
 import GenaricTable from '../components/main/table/GenaricTable'
+import formSchema from "../FormDescription/Com_Form/SW"
 
 const schema = {
-    endPoint:"portquarter",
+    formSchema,
+    endPoint:"port",
     //endPoint:"lakequarter",
     data: (data)=> {
        return  data.map((e,i)=>{
@@ -16,40 +18,58 @@ const schema = {
     ,
     columns: [
         {
-            title: 'المراكب',
-            dataIndex: 0,
+            title: 'النوع',
+            dataIndex: "pvPorttypeId",
             // dataIndex: 'visitCount',
             key: 'visitCount',
             render: text => <a>{text}</a>,
         },
         {
-            title: 'الربع السنوى',
-            dataIndex: 5,
+            title: 'الكود',
+            dataIndex: "portId",
             // dataIndex: 'pqName',
             key: 'pqName',
         },
         {
-            title: 'الميناء',
-            dataIndex: 4,
+            title: 'الاسم',
+            dataIndex: "portName",
             // dataIndex: ['port','portName'],
             key: 'lakeId',
         },
         {
-            title: 'المحافظه',
-            dataIndex: 2,
-            // dataIndex: ['port','gov','govName'],
+            title: 'التاريخ',
+            dataIndex: "pvDate",
             key: 'lakeName',
         },
         {
-            title: 'الاجهزه الملاحيه',
+            title: 'المحافظه',
             key: 'govName',
-            dataIndex: 1
+            dataIndex: ['gov','govName'],
             // dataIndex: 'govName'
         },
         {
-            title: 'مكتب المصايد',
-            key: 'gafrdName',
-            dataIndex: 3
+            title: 'تاريخ التشغيل',
+            key: 'poperationDate',
+            dataIndex: "poperationDate"
+            // dataIndex: ['portBoats',0,'boat','fisheryDisk','fdName']
+        }
+        ,
+        {
+            title: 'المساحه الكليه ',
+            key: 'pvTotalarea',
+            dataIndex: "pvTotalarea"
+            // dataIndex: ['portBoats',0,'boat','fisheryDisk','fdName']
+        },
+        {
+            title: 'المساحه الكليه للمسطح بالمتر المربع',
+            key: 'pvWaterarea',
+            dataIndex: "pvWaterarea"
+            // dataIndex: ['portBoats',0,'boat','fisheryDisk','fdName']
+        },
+        {
+            title: 'المساحه الغير مستغله',
+            key: 'pvUnusedarea',
+            dataIndex: "pvUnusedarea"
             // dataIndex: ['portBoats',0,'boat','fisheryDisk','fdName']
         }
     ]
