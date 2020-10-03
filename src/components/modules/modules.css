@@ -1,11 +1,11 @@
 .main__wrapper{
     display: flex;
-    padding: 4rem 10rem;
+    padding: 4rem 1rem;
     flex-direction: column;
     width: calc( 100% - 280px);
 }
 .main__heading{
-    padding: 1rem 0 1.5rem;
+    padding: 1rem 2rem 1.5rem;
 }
 .main__description{
     line-height: 3rem;
@@ -17,10 +17,10 @@
 .content__wrapper{
     /* width: 105rem; */
     min-height: 70vh;
-    background-color: white;
-    padding: 3rem 6rem 2rem;
+    /* background-color: white; */
+    padding: 3rem 1rem 2rem;
     border-radius: 3.5rem;
-    box-shadow:  2px 3px 6px var(--color-shadow);
+    /* box-shadow:  2px 3px 6px var(--color-shadow); */
 }
 .content__wrapper.nested__Document{
     background-color: var(--color-gray-light-3);

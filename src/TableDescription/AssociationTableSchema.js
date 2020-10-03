@@ -4,9 +4,9 @@ import formSchema from "../FormDescription/Association"
 
 const  schema = {
     
-    id:"assCode",
+    id:"id",
     formSchema,
-    endPoint:"associationlt",
+    endPoint:"Association",
     data: (data)=> {
        return  data.map((e)=>{
             return{
@@ -19,18 +19,18 @@ const  schema = {
     columns: [
         {
             title: 'كود الجمعيه',
-            dataIndex: 'assId',
-            key: 'assId'
+            dataIndex: 'id',
+            key: 'id'
         },
         {
             title: 'اسم الجمعيه',
-            dataIndex: 'assName',
-            key: 'assName',
+            dataIndex: 'name',
+            key: 'name',
         },
         {
             title: 'الصلاحيات التابع لها',
             key: 'gov',
-            dataIndex: ['gov','govName']
+            dataIndex: ['governorate','name']
         },
         
     ]

@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 import formSchema from "../FormDescription/species"
 
 const schema = {
-    id:"speciesId",
+    id:"id",
 
     formSchema,
-    endPoint: "specieslt",
+    endPoint: "FishKind",
     data: (data) => {
         return data.map((e) => {
             return {
@@ -19,13 +19,17 @@ const schema = {
     columns: [
         {
             title: 'م',
-            dataIndex: 'speciesId',
-            key: 'speciesId'
+            dataIndex: 'id',
+            key: 'id',
+            render:(r)=><p>{r+1}</p>
+            
         },
         {
             title: 'الاسم بالكامل',
-            dataIndex: 'speciesName',
-            key: 'speciesName',
+            dataIndex: 'name',
+            key: 'name'
+           
+
         }
     ]
 }

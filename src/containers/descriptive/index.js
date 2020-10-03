@@ -8,7 +8,7 @@ import LakesForm from '../../components/modules/descriptive/lakes';
 import DescriptiveBasic from '../../components/modules/descriptive/basic';
 import './descriptive.css';
 import G_Admin from '../../components/modules/admin/G_Admin';
-
+import FarmTable from "../../components/modules/descriptive/farm/Table"
 const DiscriptivePage = () => {
     const history = useHistory()
     const active ='descriptive';
@@ -28,7 +28,7 @@ const DiscriptivePage = () => {
         },
         {
             name : 'إستمارة بيانات المزارع السمكية',
-            to : 'FarmQ'
+            to : 'Farm'
         },
         {
             name : 'إستمارة بيانات المفرخات السمكية',
@@ -62,8 +62,8 @@ const DiscriptivePage = () => {
                     <Route exact path="/descriptive/lakeWater">
                     <G_Admin key="2" name="lakeQS" />
                     </Route>
-                    <Route exact path="/descriptive/FarmQ">
-                    <G_Admin key="3" name="FarmQ" />
+                    <Route exact path="/descriptive/Farm">
+                    <FarmTable key="3" name="FarmQ" />
                     </Route>
                     <Route exact path="/descriptive/sw">
                     <G_Admin key="4" name="Port" />

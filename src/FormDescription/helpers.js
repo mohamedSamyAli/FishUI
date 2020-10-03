@@ -1,10 +1,9 @@
 import React from 'react';
-import { Checkbox, Input, Form, Button } from 'antd';
+import { Checkbox, Input, Form, Button, InputNumber } from 'antd';
 
 export const gettextField=(name,label,required,type)=>{
 
     let CField = type? Input[type] : Input;
-
     return  {
         config:{
             name,

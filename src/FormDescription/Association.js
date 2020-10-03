@@ -1,19 +1,38 @@
 import React from 'react';
 import { gettextField, getManytextFields } from "./helpers"
 import GovSelectorComponent from '../components/FormComponent/SelectorFetchComponent';
+import { Input } from 'antd';
 
 const schema = [
-    gettextField("assName", "الاسم", true)
+    gettextField("name", "الاسم", true)
     ,
     {
         config: {
-            name: ['gov','govId'],
+            name: ['governorateId'],
             label: "المحافظه",
         },
         render: (props) => <GovSelectorComponent entity='gov' {...props} />
 
     },
-    ...getManytextFields(["assLong", 'assLat'], ['Longitude ', 'Latitude'], [false, false], [null, null])
+    {
+        config: {
+            label: 'Longitude',
+            name: "lng",
+            normalize:(v)=>parseFloat(v)
+        },
+        render: (props) => <Input type="number" {...props} />
+
+    },
+    {
+        config: {
+            label: 'Latitude',
+            name: "lat",
+            normalize:(v)=>parseFloat(v),
+            
+        },
+        render: (props) => <Input type="number" {...props} />
+
+    }
 
 ]
 

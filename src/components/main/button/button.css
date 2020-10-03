@@ -52,7 +52,7 @@
     color: auto;
 }
 .ant-btn.bgcolor-primary{
-    background-color: var(--color-css-primary);
+    background-color: var(--color-css-primary) !important;
 }
 .ant-btn.bgcolor-primary:hover{
     background-color: #5aaebf;

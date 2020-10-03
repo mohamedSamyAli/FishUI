@@ -61,7 +61,7 @@ class GenaricTable extends Component {
         }
     }
     onClickDelete(id) {
-
+        debugger
         axios.delete(baseURl + this.props.schema.endPoint + "/" + id).then(e => {
             alert("تم المسح")
             this.fetchData()
@@ -71,6 +71,7 @@ class GenaricTable extends Component {
     }
     onClickUpdate(id) {
         this.updateId = id;
+        this.isUpdate=true
         axios.get(baseURl + this.props.schema.endPoint + "/" + id)
             .then((response) => {
                 console.log(response.data)
@@ -83,6 +84,7 @@ class GenaricTable extends Component {
             })
     }
     onClickAdd = () => {
+        this.isUpdate=false
         this.setState({ initialValues: {} })
         this.showModal()
     }
@@ -107,14 +109,33 @@ class GenaricTable extends Component {
         })
     }
     onFinish = (e) => {
-        axios.post(baseURl + this.props.schema.endPoint, e, {
-            headers: {
-                'Content-Type': 'application/json',
+        if(this.isUpdate){
+            axios.put(baseURl + this.props.schema.endPoint, {...e,id:this.updateId}, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }).then(r => {
+                 console.log(r) 
+                 this.setState({
+                    visible: false,
+                });
+                 this.fetchData()
+                }).catch(r => { console.log(r) })
+        }else{
 
-            }
-        }).then(r => { console.log(r) }).catch(r => { console.log(r) })
+            axios.post(baseURl + this.props.schema.endPoint, e, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }).then(r => {
+                console.log(r) 
+                this.setState({
+                    visible: false,
+                });
+                this.fetchData()
+            }).catch(r => { console.log(r) })
+        }
         //console.log(myForm)
-        console.log(e)
     }
     handleCancel = () => {
         this.setState({

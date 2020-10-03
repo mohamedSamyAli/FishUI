@@ -19,8 +19,10 @@ class GovSelectorComponent extends Component {
         console.log(schema[this.props.entity])
     }
     fetchData = (id = "") => {
+        debugger
         axios.get(baseURl + schema[this.props.entity].endPoint + id)
             .then((response) => {
+                debugger
                 let temp = schema[this.props.entity].parser(response.data)
                 if (Array.isArray(temp)) {
                     this.setState({ data: temp })
@@ -50,15 +52,11 @@ class GovSelectorComponent extends Component {
         this.props.onChange(e)
     }
     componentDidMount() {
-
-        
-
         if (this.props.ChildE) {
             this.props[this.props.parentE][this.props.ChildE] = this.fetchData
         } else {
             this.fetchData()
         }
-
     }
     componentWillUnmount() {
         if (this.props.ChildE) {
@@ -85,7 +83,6 @@ class GovSelectorComponent extends Component {
                 {
                     data.map(e => <Option key={e.key} value={e.key}>{e.name}</Option>)
                 }
-
             </Select>
         );
     }

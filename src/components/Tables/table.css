@@ -46,7 +46,7 @@
 .ant-table-cell .ant-btn-primary svg {
     width: 1.4rem;
     height: 1.4rem;
-    color: var(--color-css-primary);
+    color: white;
 }
 .warning__actionColor.ant-btn-primary svg{
     color: #FF7285;
@@ -88,4 +88,16 @@
 }
 .property__value{
     font-size: 1.2rem;
+}
+
+/* .ant-spin-container .ant-table.ant-table-rtl.ant-table-fixed-header{
+    border-radius: 20rem !important;
+} 
+.ant-table-header{
+    border-radius: 20rem !important;
+} */
+/* ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left */
+td {
+    margin: auto;
+    height: 10px;
 }

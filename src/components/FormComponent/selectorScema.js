@@ -1,5 +1,31 @@
 
 const schema = {
+    WaterSource:{
+        endPoint:"WaterSource", 
+        config:{
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        }
+    },
+     WaterType:{
+        endPoint:"WaterType", 
+        config:{
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        }
+    },
     plantlt:{
         endPoint:"plantlt", 
         config:{
@@ -13,52 +39,89 @@ const schema = {
             })
         }
     },
-    soiltypelt:{
-        endPoint:"soiltypelt", 
+    location:{
+        endPoint:"Location", 
         config:{
         },
         parser:(data)=>{
             return data.map(e=>{
                 return {
-                    key:e.stypeId,
-                    name:e.stypeName
+                    key:e.id,
+                    name:e.name
                 }
             })
         }
     },
-    winddirectionlt:{
-        endPoint:"winddirectionlt", 
+    soiltypelt:{
+        endPoint:"SoilType", 
         config:{
         },
         parser:(data)=>{
             return data.map(e=>{
                 return {
-                    key:e.wdId,
-                    name:e.wdName
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        }
+    },
+    WindDirection:{
+        endPoint:"WindDirection", 
+        config:{
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
                 }
             })
         }
     },
     gafard:{
-        endPoint:"gov/", 
+        endPoint:"Region/GetByGovId/", 
         config:{
         },
         parser:(data)=>{
             return {
-                    key:data.gafrd.gafrdId,
-                    name:data.gafrd.gafrdName
+                    key:data.id,
+                    name:data.name
                 }
         }
     },
+    age:{
+        endPoint:"age",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        } 
+    },
+    FarmJobType:{
+        endPoint:"FarmJobType",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        } 
+    },
     gov:{
-        endPoint:"gov", 
+        endPoint:"Governorate", 
         config:{
         },
         parser:(data)=>{
             return data.map(e=>{
                 return {
-                    key:e.govId,
-                    name:e.govName
+                    key:e.id,
+                    name:e.name                    
                 }
             })
         }
@@ -90,14 +153,14 @@ const schema = {
         }
     },
     markaz:{
-        endPoint:"markaz/",
+        endPoint:"Markaz/GetByGovId/",
         config:{
         },
         parser:(data)=>{
             return data.map(e=>{
                 return {
-                    key:e.markazId,
-                    name:e.markazName
+                    key:e.id,
+                    name:e.name
                 }
             })
         }

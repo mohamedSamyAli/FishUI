@@ -3,12 +3,12 @@ import { gettextField, getManytextFields } from "./helpers"
 import GovSelectorComponent from '../components/FormComponent/SelectorFetchComponent';
 
 const schema = [
-    gettextField("gafrdName","الاسم",true,null)
-    ,
+    gettextField(["Region","name"],"الاسم",true,null)
+    
     ,
     {
         config: {
-            name: ['gov'],
+            name: "GovernorateIds",
             label: "المحافظه",
             rules: [{ required: true, message: `ادخل المحافظه` }]
         },

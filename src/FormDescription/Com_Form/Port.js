@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Collapse, Upload, Button, DatePicker, Select } from 'antd'
+import { Form, Input, Collapse, Upload, Button, DatePicker, Select, InputNumber } from 'antd'
 import DateQuerterComponent from '../../components/FormComponent/DateQuerterComponent'
 import SelectorFetchComponent from '../../components/FormComponent/SelectorFetchComponent'
 import { getManytextFields_FormItem } from '../helpers'
@@ -188,37 +188,37 @@ const Port=(props) => {
                 name="WT9"
                 label="عدد محطات الوقود"
                 >
-                    <Input type="number"/>
+                    <Input type="number" />
                 </Item>
                 <Item
                 name="WT11"
                 label="عدد مصانع الثلج"
                 >
-                    <Input type="number"/>
+                    <Input type="number" />
                 </Item>
                 <Item
                 name="WT12"
                 label="عدد المخازن الكلى "
                 >
-                    <Input type="number"/>
+                    <Input type="number" />
                 </Item>
                 <Item
                 name="WT13"
                 label="عدد المخازن المستغل "
                 >
-                    <Input type="number"/>
+                    <Input type="number" />
                 </Item>
                 <Item
                 name="WT14"
                 label="عدد القزق"
                 >
-                    <Input type="number"/>
+                    <Input type="number" />
                 </Item>
                 <Item
                 name="WT15"
                 label="المساحات الموجودة بالميناء و التي لم تستغل و يمكن إستغلالها بالمتر المربع"
                 >
-                    <Input type="number"/>
+                    <Input type="number" />
                 </Item>
                 <Item
                 name="vip"
@@ -236,7 +236,7 @@ const Port=(props) => {
                 name="capicity"
                 label="قدرة الميناء من حيث الإستيعاب للمراكب"
                 >
-                    <Input type="number"/>
+                    <Input type="number" />
                 </Item>
                 </Panel>
                 <Panel accordion={true} header="خطط الوقايه من" key="safetyPaln">

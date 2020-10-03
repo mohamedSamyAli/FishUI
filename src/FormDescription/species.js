@@ -7,7 +7,7 @@ import { Select } from 'antd';
 const { Option } = Select;
 
 const schema = [
-    gettextField("speciesName"," الاسم ",true)
+    gettextField("name"," الاسم ",true)
 ]
 
 
