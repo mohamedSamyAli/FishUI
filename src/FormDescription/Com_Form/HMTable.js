@@ -5,7 +5,7 @@ const { Item } = Form
 
 export default function HMTable() {
     return (
-        <table width="700" border="1" align="right">
+        <table class="customtable" width="700" border="1" align="right">
             <tr name="row0">
                 <th scope="col"><label style={{ fontSize: "18px", fontWeight: " bolder" }}>العناصر الثقيلة</label></th>
                 <th scope="col"><label style={{ fontSize: "18px", fontWeight: " bolder" }}>فى المياه (مللى جرام/لتر)</label></th>

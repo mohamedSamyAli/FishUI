@@ -6,7 +6,7 @@ import {useHistory,Switch,Route} from "react-router-dom";
 import EditMap from '../../components/modules/admin/spacialDocuments/editMap.js';
 import AdminBasic from '../../components/modules/admin/basic';
 import G_Admin from '../../components/modules/admin/G_Admin';
-
+import JopTable from "../../components/modules/admin/jobs/Table.js"
 
 const AdminPage = () => {
     const history = useHistory()
@@ -75,7 +75,7 @@ const AdminPage = () => {
                             <G_Admin key="4" name="Gafrd" />
                         </Route>
                         <Route path="/admin/jobs">
-                            <G_Admin key="5" name="Job" />
+                            <JopTable/>
                         </Route>
                         <Route path="/admin/assoc">
                             <G_Admin key="6" name="assoc" />

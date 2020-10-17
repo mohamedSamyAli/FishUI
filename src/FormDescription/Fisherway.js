@@ -7,11 +7,11 @@ import { Select } from 'antd';
 const { Option } = Select;
 
 const schema = [
-    gettextField("fisherwayName"," الاسم ",true),
+    gettextField("name"," الاسم ",true),
         {
             config:{
                 label:'تابعه لى',
-                name:"fisherwayType",
+                name:"fisherWayRelationId",
                 rules:[{ required: true, message:`مطلوب`}]
 
 
@@ -26,9 +26,9 @@ const schema = [
                 }
                 {...props}
                 >
-                <Option key='12' value={1}>مياه بحرية</Option>
-                <Option key='13' value={2}>بحيرات</Option>
-                <Option key='14' value={3}>بحيرات ومياه بحريه</Option>
+                <Option key={1} value={1}>مياه بحرية</Option>
+                <Option key={2} value={2}>بحيرات</Option>
+                <Option key={3} value={3}>بحيرات ومياه بحريه</Option>
               </Select>
          )
          

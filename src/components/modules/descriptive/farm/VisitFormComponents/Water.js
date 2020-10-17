@@ -9,21 +9,22 @@ export default class Water extends Component {
             <div>
                 <Item
                     label="مصدر المياه"
-                    name="sDd"
-                >
+                    name={["farmVisit","farmSample","waterSourceId"]}
+                    >
                     <SelectorFetchComponent entity="WaterSource" />
                 </Item>
                 <Item
                     label="نوعية المياه"
-                    name="sDd"
-                >
+                    name={["farmVisit","farmSample","waterTypeId"]}
+                    >
                     <SelectorFetchComponent entity='WaterType' />
                 </Item>
                 <Item
                     label="معدل تغير المياه بالمتر المكعب"
-                    name="sDd"
+                    name={["farmVisit","farmSample","waterRate"]}
+                    normalize={(v)=>parseFloat(v)}
                 >
-                    <Input />
+                    <Input type="number"></Input>
                 </Item>
             </div>
         )

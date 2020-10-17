@@ -17,12 +17,23 @@ class GovSelectorComponent extends Component {
         super(props)
         console.log(this.props.entity)
         console.log(schema[this.props.entity])
+        schema[this.props.entity] = schema[this.props.entity]? schema[this.props.entity]:{endPoint:this.props.entity,
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.idd,
+                    name:e.name
+                }
+            })
+        } 
+    }
     }
     fetchData = (id = "") => {
-        debugger
+        
         axios.get(baseURl + schema[this.props.entity].endPoint + id)
             .then((response) => {
-                debugger
+                
                 let temp = schema[this.props.entity].parser(response.data)
                 if (Array.isArray(temp)) {
                     this.setState({ data: temp })

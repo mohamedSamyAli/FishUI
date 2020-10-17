@@ -3,12 +3,14 @@ import Navbar from '../../components/layout/navbar';
  import './descriptive.css';
 import Sidemenu from '../../components/layout/sidemenu';
 import {useHistory,Switch,Route} from "react-router-dom";
-import LakesAddForm from '../../components/modules/descriptive/lakes/addEdit.js';
-import LakesForm from '../../components/modules/descriptive/lakes';
 import DescriptiveBasic from '../../components/modules/descriptive/basic';
 import './descriptive.css';
 import G_Admin from '../../components/modules/admin/G_Admin';
 import FarmTable from "../../components/modules/descriptive/farm/Table"
+import RentTable from "../../components/modules/descriptive/Rent/Table"
+import LakeVTable from "../../components/modules/descriptive/lakes/Table"
+import Rent from '../../components/modules/descriptive/Rent/Rent';
+
 const DiscriptivePage = () => {
     const history = useHistory()
     const active ='descriptive';
@@ -32,7 +34,7 @@ const DiscriptivePage = () => {
         },
         {
             name : 'إستمارة بيانات المفرخات السمكية',
-            to : ''
+            to : 'port'
         },
         {
             name : 'إستمارة الماه البحرية',
@@ -57,7 +59,7 @@ const DiscriptivePage = () => {
                 <div className="content__container">
                 <Switch>
                     <Route path="/descriptive/lakeQuarter">
-                    <G_Admin key="1" name="lakeQV" />
+                    <LakeVTable key="1" name="lakeQV" />
                     </Route>
                     <Route exact path="/descriptive/lakeWater">
                     <G_Admin key="2" name="lakeQS" />
@@ -69,10 +71,10 @@ const DiscriptivePage = () => {
                     <G_Admin key="4" name="Port" />
                     </Route>
                     <Route exact path="/descriptive/port">
-                    <G_Admin key="5" name="PortQ" />
+                    <Rent key="5"/>
                     </Route>
                     <Route exact path="/descriptive/Contract">
-                    <G_Admin key="6" name="Contract" />
+                    <RentTable key="6" name="FarmQ" />
                     </Route>
                     <Route path="/descriptive">
                         <DescriptiveBasic/>

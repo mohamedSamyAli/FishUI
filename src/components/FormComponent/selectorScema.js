@@ -1,5 +1,105 @@
 
 const schema = {
+    WorkerLevel:{
+        endPoint:"WorkerLevel",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.idd,
+                    name:e.name
+                }
+            })
+        } 
+    },
+    fisherway:{
+        endPoint:"Fisherway",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        } 
+    },
+    fishKind:{
+        endPoint:"fishKind",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        } 
+    },
+    boatdegre:{
+        endPoint:"BoatDegre",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        } 
+    },
+    boatType:{
+        endPoint:"BoatType",
+        config:{},
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        } 
+    },
+    lake:{
+        endPoint:"lake/GetLakeByGovId/", 
+        config:{
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        }
+    },
+    FarmGov:{
+        endPoint:"Farm/GetFarmByGovId/", 
+        config:{
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:"F"+(e.markaz.governorateId).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})+"."+(e.serial).toLocaleString('en-US', {minimumIntegerDigits: 6, useGrouping:false}),
+                    name:"F"+(e.markaz.governorateId).toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false})+"."+(e.serial).toLocaleString('en-US', {minimumIntegerDigits: 6, useGrouping:false}),
+                    //name:e.code
+                }
+            })
+        }
+    },
+    fisherDesk:{
+        endPoint:"FisherDesk/getbyGovid/",
+        config:{
+        },
+        parser:(data)=>{
+            return data.map(e=>{
+                return {
+                    key:e.id,
+                    name:e.name
+                }
+            })
+        }
+    },
     WaterSource:{
         endPoint:"WaterSource", 
         config:{
@@ -13,7 +113,7 @@ const schema = {
             })
         }
     },
-     WaterType:{
+    WaterType:{
         endPoint:"WaterType", 
         config:{
         },
@@ -125,33 +225,7 @@ const schema = {
                 }
             })
         }
-    },
-    lakegov:{
-        endPoint:"lake/", 
-        config:{
-        },
-        parser:(data)=>{
-            return data.map(e=>{
-                return {
-                    key:e.lakeId,
-                    name:e.lakeName
-                }
-            })
-        }
-    },
-    fisherDesk:{
-        endPoint:"fisherydisk/",
-        config:{
-        },
-        parser:(data)=>{
-            return data.map(e=>{
-                return {
-                    key:e.fdCode,
-                    name:e.fdName
-                }
-            })
-        }
-    },
+    }, 
     markaz:{
         endPoint:"Markaz/GetByGovId/",
         config:{
@@ -177,18 +251,6 @@ const schema = {
             })
         } 
     },
-    boatdegree:{
-        endPoint:"boatdegreelt",
-        config:{},
-        parser:(data)=>{
-            return data.map(e=>{
-                return {
-                    key:e.boatDId,
-                    name:e.boatDName
-                }
-            })
-        } 
-    },
     boatmaterial:{
         endPoint:"boatmateriallt",
         config:{},
@@ -209,18 +271,6 @@ const schema = {
                 return {
                     key:e.assId,
                     name:e.assName
-                }
-            })
-        } 
-    },
-    fisherway:{
-        endPoint:"Fisherway",
-        config:{},
-        parser:(data)=>{
-            return data.map(e=>{
-                return {
-                    key:e.fisherwayId,
-                    name:e.fisherwayName
                 }
             })
         } 

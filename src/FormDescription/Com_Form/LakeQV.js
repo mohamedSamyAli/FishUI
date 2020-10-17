@@ -15,6 +15,7 @@ export default class LakeQV extends Component {
                 <Form.Item
                     name="date"
                     lable="التاريخ"
+                    
                     >
                     <DateQuerterComponent />
                 </Form.Item>
@@ -55,8 +56,6 @@ export default class LakeQV extends Component {
                     rules={[
                         ({ getFieldValue, setFieldsValue }) => ({
                             validator(rule, value) {
-                                
-
                                 let temp = parseInt(getFieldValue('uarea'))
                                 value = parseInt(value) ? parseInt(value) : 0
                                 setFieldsValue({ unarea: -temp + value })
@@ -125,6 +124,7 @@ export default class LakeQV extends Component {
                 , ["عدد أيام الصيد / الشهر","عدد السرحات / اليوم","زمن السرحة / الدقائق"]
                 , [false,true,false],
                 [null, null])}
+
 </Panel>
 
                 </Collapse>

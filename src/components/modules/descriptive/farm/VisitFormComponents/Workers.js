@@ -8,9 +8,9 @@ export default class Workers extends Component {
             <div>
                 <Item
                     label="العنصر البشري"
-                    name={['lat']}
+                    name={['farmVisit','workerLevelId']}
                 >
-                    <SelectorFetchComponent entity='FarmJobType' />
+                    <SelectorFetchComponent entity='WorkerLevel' />
                 </Item>
 
                 <Item

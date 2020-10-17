@@ -7,35 +7,38 @@ export default class Food extends Component {
     render() {
         return (
             <div>
-              <Item
-                    name="mok322"
+                <Item
+                    name={["farmVisit", "farmSample", "fooderId"]}
                     label="نوع العلف"
                 >
-                    <SelectorFetchComponent entity="gov"/>
-                </Item>  
+                    <SelectorFetchComponent entity="Fooder" />
+                </Item>
                 <Item
-                    name="mok3s2"
+                    name={["farmVisit", "farmSample", "rawProtienId"]}
                     label="البروتين الخام %"
                 >
-                    <Input></Input>
+                <SelectorFetchComponent entity="RawProtien" />
                 </Item>
                 <Item
-                    name="mok32v"
+                    name={["farmVisit", "farmSample", "de"]}
                     label="لطاقة (DE) (Kcal/g)"
+                    normalize={parseFloat}
                 >
-                    <Input></Input>
+                    <Input type="number" />
                 </Item>
                 <Item
-                    name="moklk32"
+                    name={["farmVisit", "farmSample", "dp"]}
                     label="DP للبروتين المهضوم %"
-                >
-                    <Input></Input>
+                    normalize={parseFloat}
+                    >
+                        <Input type="number" />
                 </Item>
                 <Item
-                    name="mok32"
+                    name={["farmVisit", "farmSample", "DpDe"]}
                     label="قيمة DE\DP"
+                     normalize={parseFloat}
                 >
-                    <SelectorFetchComponent entity="gov"/>
+                    <Input type="number" />
                 </Item>
             </div>
         )

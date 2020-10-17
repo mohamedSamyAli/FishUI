@@ -61,7 +61,7 @@ class GenaricTable extends Component {
         }
     }
     onClickDelete(id) {
-        debugger
+        
         axios.delete(baseURl + this.props.schema.endPoint + "/" + id).then(e => {
             alert("تم المسح")
             this.fetchData()

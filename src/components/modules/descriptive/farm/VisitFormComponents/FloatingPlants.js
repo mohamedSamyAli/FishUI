@@ -7,46 +7,53 @@ export default class FloatingPlants extends Component {
             <div>
                   <Item
                             label="عدد وحدات الهائمات النباتية"
-                            name={["bioChar", "bc"]}
-                        >
-                            <Input type="number" />
+                            name={["farmVisit","farmBioChar", "phy"]}
+                         normalize={(v)=>parseFloat(v)}
+                >
+                    <Input type="number"></Input>
                         </Item>
                         <lable>عدد وحدات عائلات الهائمات النباتية </lable>
                         <Item
                             label="الدياتومات"
-                            name={["bioChar", "bc"]}
-                        >
-                            <Input type="number" />
+                            name={["farmVisit","farmBioChar", "dia"]}
+                         normalize={(v)=>parseFloat(v)}
+                >
+                    <Input type="number"></Input>
                         </Item>
                         <Item
                             label="الطحالب الخضراء"
-                            name={["bioChar", "bc"]}
-                        >
-                            <Input type="number" />
+                            name={["farmVisit","farmBioChar", "galgea"]}
+                         normalize={(v)=>parseFloat(v)}
+                >
+                    <Input type="number"></Input>
                         </Item>
                         <Item
                             label="الطحالب الخضراء المزرقة"
-                            name={["bioChar", "bc"]}
-                        >
-                            <Input type="number" />
+                            name={["farmVisit","farmBioChar", "bgalgea"]}
+                         normalize={(v)=>parseFloat(v)}
+                >
+                    <Input type="number"></Input>
                         </Item>
                         <Item
                             label="اخرى"
-                            name={["bioChar", "bc"]}
-                        >
-                            <Input type="number" />
+                            name={["farmVisit","farmBioChar", "otheralgea"]}
+                         normalize={(v)=>parseFloat(v)}
+                >
+                    <Input type="number"></Input>
                         </Item>
                         <Item
                             label="تركيزات الكلوروفيل أ لكل مللي جرام / لتر ماء"
-                            name={["bioChar", "bc"]}
-                        >
-                            <Input type="number" />
+                            name={["farmVisit","farmBioChar", "cla"]}
+                         normalize={(v)=>parseFloat(v)}
+                >
+                    <Input type="number"></Input>
                         </Item>
                         <Item
                             label="عدد الطحالب الملتصقة فوق النباتات لكل جرام وزن صافى من النبات"
-                            name={["bioChar", "bc"]}
-                        >
-                            <Input type="number" />
+                            name={["farmVisit","farmBioChar", "algeaplant"]}
+                         normalize={(v)=>parseFloat(v)}
+                >
+                    <Input type="number"></Input>
                         </Item>
 
 

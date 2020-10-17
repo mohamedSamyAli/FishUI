@@ -20,19 +20,19 @@ const  schema = {
     ,
     columns: [
         {
-            title: 'كود الجمعيه',
-            dataIndex: 'fisherwayId',
+            title: 'كودالحرفه',
+            dataIndex: 'id',
             key: 'fisherwayId'
         },
         {
-            title: 'اسم الجمعيه',
-            dataIndex: 'fisherwayName',
+            title: 'اسم الحرفه',
+            dataIndex: 'name',
             key: 'fisherwayName',
         },
         {
             title: 'تابعة لى',
             key: 'fisherwayType',
-            dataIndex: 'fisherwayType'
+            dataIndex: ['fisherWayRelation',"name"]
         },
         
     ]

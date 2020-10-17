@@ -7,84 +7,60 @@ export default class GenralInfo extends Component {
         return (
             <div>
                     <Item
-                            name="mok32"
+                            name={["farmVisit","farmId"]}
                             label="كود المزرعه"
                         >
                             <Input></Input>
                         </Item>
 
                         <Item
-                            name="date"
+                            name={["farmVisit","visitDate"]}
                             label="التاريخ"
+                            rules={[
+                                { validator:(_, value) => {
+                                    console.log(value)
+                                    return value <new Date()? Promise.resolve() : Promise.reject('غير مسموح بتاريخ اكبر من اليوم') }
+                                },
+                              ]}
                         >
                             <DatePicker />
                         </Item>
                         <Item
-                            name="mok13"
+                            name={["farmVisit","ownerName"]}
                             label="اسم صاحب المزرعه"
-                        >
+                            rules={[{ required: true, message: 'يجب ادخال اسم صاحب المزرعه' }]} 
+                            >
                             <Input></Input>
                         </Item>
                         <Item
-                            name="mok13"
+                            name={["farmVisit","farmName"]}
                             label="اسم المزرعه"
+                            rules={[{ required: true, message: 'يجب اسم المزرعه' }]} 
+
                         >
                             <Input></Input>
                         </Item>
+  
                         <Item
-                            name='userGovId'
-                            label="المحافظه"
-                            rules={[{ required: true, message: `ادخل المحافظه` }]}
-                        >
-                            <SelectorFetchComponent parentE="GovEvents" entity='gov' />
-                        </Item>
-                        <Item
-                            label='اسم البحيرة'
-                            name="lakegov"
-                        >
-                            <SelectorFetchComponent ChildE="lakegov" parentE="GovEvents" entity='lakegov' />
-                        </Item>
-                        <Item
-                            name="mok3"
-                            label="الموقع"
-                        >
-                            <Input></Input>
-                        </Item>
-                        <Item
-                            name='markz'
-                            label="المركز"
-                            rules={[{ required: true, message: `ادخل المركز` }]}
-                        >
-                            <SelectorFetchComponent ChildE="markaz" parentE="GovEvents" entity='markaz' />
-                        </Item>
-                        <Item
-                            name='ageId'
-                            label="منطقة الثروه السمكيه"
-                            rules={[{ required: true, message: `ادخل المنطقه` }]}
-                        >
-                            <SelectorFetchComponent ChildE="fisherDesk" parentE="GovEvents" entity='gafard' />
-                        </Item>
-                        <Item
-                            name="ٍSampleN"
+                            name={["farmVisit","ownerJob"]}
                             label="الوظيفه"
                         >
                             <Input />
                         </Item>
                         <Item
-                            name="mok32"
+                            name={["farmVisit","ownerNID"]}
                             label="رقم البطاقه"
                             rules={[{ max: 14 }, { type: "number" }]}
                         >
                             <Input />
                         </Item>
-
-                        <Item
-                            name='gafard'
+                        {/* <Item
+                            name={["farmVisit","ownerNID"]}
                             label="عمر المزرعة السمكية"
                             rules={[{ required: true, message: `ادخل المنطقه` }]}
                         >
                             <SelectorFetchComponent entity='age' />
-                        </Item>
+                        </Item> */}
             </div>
         )
     }

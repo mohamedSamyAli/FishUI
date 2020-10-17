@@ -5,53 +5,115 @@ export default class FixedCost extends Component {
     render() {
         return (
             <div>
-                 <Item
-                    name={["H_FixedCost","land"]}
-                    label="الارض"
-                    initialValue="0"
-                >
-                    <Input type="number" min={0} />
-                </Item> 
-                <Item
-                    name={["H_FixedCost","bowl"]}
-                    label="تكلفة الاحواض"
-                    initialValue="0"
-                >
-                    <Input type="number" min={0} />
-                </Item> 
-                <Item
-                    name={["H_FixedCost","equiopment"]}
-                    label="المعدات"
-                    initialValue="0"
-                >
-                    <Input type="number" min={0} />
-                </Item> 
-                <Item
-                    name={["H_FixedCost","building"]}
-                    label="المبانى"
-                    initialValue="0"
-                >
-                    <Input type="number" min={0} />
-                </Item> 
-                <Item
-                    name="totalFixedCost"
-                    label="الاجمالى"
-                    dependencies={[["H_FixedCost","building"],["H_FixedCost","equiopment"],["H_FixedCost","land"],["H_FixedCost","building"]]}
-                    rules= {[
-                        ({ getFieldValue ,setFieldsValue}) => ({
-                            validator(rule, value) {
-                                debugger
-                                let FC =getFieldValue("H_FixedCost")
-                                let sum =parseFloat(FC.land)+parseFloat(FC.bowl)+parseFloat(FC.equiopment)+parseFloat(FC.building)
+                <Form.List name="farmFixedCosts">
+                    {
+                        () => {
+                            return (<div>
                                 
-                                    setFieldsValue({totalFixedCost:sum})
-                                    return Promise.resolve();
-    
-                            },
-                          })]}
+                                <Item
+                                    name={[0, "val"]}
+                                    label="الارض"
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    rules={[
+                                        ({ getFieldValue, setFieldsValue }) => ({
+                                            validator(rule, value) {
+                
+                                                let FC = getFieldValue("farmFixedCosts")
+                                                let sum = FC[0].val + 
+                                                          FC[1].val + 
+                                                          FC[2].val + 
+                                                          FC[3].val
+                
+                                                          setFieldsValue({farmVisit:{totalFixedCost: sum} })
+                                                          return Promise.resolve();
+                
+                                            },
+                                        })]}
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+
+                                <Item
+                                    name={[1, "val"]}
+                                    label="تكلفة الاحواض"
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    rules={[
+                                        ({ getFieldValue, setFieldsValue }) => ({
+                                            validator(rule, value) {
+                
+                                                let FC = getFieldValue("farmFixedCosts")
+                                                let sum = FC[0].val + 
+                                                          FC[1].val + 
+                                                          FC[2].val + 
+                                                          FC[3].val
+                
+                                                          setFieldsValue({farmVisit:{totalFixedCost: sum} })
+                                                          return Promise.resolve();
+                
+                                            },
+                                        })]}
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                <Item
+                                    name={[2, "val"]}
+                                    label="المعدات"
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    rules={[
+                                        ({ getFieldValue, setFieldsValue }) => ({
+                                            validator(rule, value) {
+                
+                                                let FC = getFieldValue("farmFixedCosts")
+                                                let sum = FC[0].val + 
+                                                          FC[1].val + 
+                                                          FC[2].val + 
+                                                          FC[3].val
+                
+                                                          setFieldsValue({farmVisit:{totalFixedCost: sum} })
+                                                          return Promise.resolve();
+                
+                                            },
+                                        })]}
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                <Item
+                                    name={[3, "val"]}
+                                    label="المبانى"
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    rules={[
+                                        ({ getFieldValue, setFieldsValue }) => ({
+                                            validator(rule, value) {
+                                                let FC = getFieldValue("farmFixedCosts")
+                                                let sum = FC[0].val + 
+                                                          FC[1].val + 
+                                                          FC[2].val + 
+                                                          FC[3].val
+                
+                                                setFieldsValue({farmVisit:{totalFixedCost: sum} })
+                                                return Promise.resolve();
+                
+                                            },
+                                        })]}
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                            </div>
+                            )
+                        }
+                    }
+                </Form.List>
+                <Item
+                    name={["farmVisit", "totalFixedCost"]}
+                    label="الاجمالى"
+
                 >
-                    <Input type="number" />
-                </Item> 
+                    <Input type="number" disabled />
+                </Item>
             </div>
         )
     }

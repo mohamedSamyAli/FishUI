@@ -206,7 +206,7 @@ export default function SW() {
 
 
                 <Panel accordion={true} header="عدد الصيادين" key="6">
-                    <table width="600" border="1" align="right">
+                    <table class="customtable" width="fit-content" border="1" align="right">
                         <tr>
                             <th scope="col" bgcolor="#c6c4c4"><label style={{ fontSize: "14px", fontWeight: "bold" }}>الحيازة</label></th>
                             <th scope="col" bgcolor="#c6c4c4"><label style={{ fontSize: "14px", fontWeight: "bold" }}>عدد الصيادين</label></th>

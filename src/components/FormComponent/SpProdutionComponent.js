@@ -24,7 +24,7 @@ class SpProdutionComponent extends Component {
 
                         return (
                             <div>
-                                <table id="dataTable" name="dataTable" width="600" border="1">
+                                <table class="customtable" id="dataTable" name="dataTable" width="fit-content" border="1">
                     <tr>
                         {/* <td rowspan="2" align="center"> */}
                         {/* </td> */}

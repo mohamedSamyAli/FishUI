@@ -93,3 +93,7 @@
 /* .ant-spin-container .ant-table.ant-table-rtl.ant-table-fixed-header{
     border-radius: 3rem !important;
 }  */
+.customtable tr th{
+    width: 120px;
+    text-align: center;
+}

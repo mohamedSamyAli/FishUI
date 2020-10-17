@@ -5,7 +5,7 @@ import { getManytextFields_FormItem } from '../../../../FormDescription/helpers'
 import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 import SpProdutionComponent from '../../../../components/FormComponent/SpProdutionComponent'
 import FSDT from './FSDT'
-import CodeComponet from './VisitFormComponents/FarmComponent/CodeComponet';
+import CodeComponet from './FarmComponent/CodeComponet';
 const { Panel } = Collapse;
 const { Item } = Form
 export default class FarmF extends Component {
@@ -25,7 +25,7 @@ export default class FarmF extends Component {
                         <Item
                          name="code"
                          label="كود المزرعه"
-                         normalize={(v)=>parseFloat(v)}
+                         normalize={(v)=>""+v}
                         >
                             <CodeComponet/>
                         </Item>
@@ -52,7 +52,7 @@ export default class FarmF extends Component {
                             label='اسم البحيرة'
                             name="LakeId"
                         >
-                            <SelectorFetchComponent ChildE="lakegov" parentE="GovEvents" entity='lakegov' />
+                            <SelectorFetchComponent ChildE="lakegov" parentE="GovEvents" entity='lake' />
                         </Item>
                         <Item
                             name="village"

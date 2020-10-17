@@ -1,158 +1,230 @@
 import React from 'react'
-import { Input,Form } from 'antd'
+import { Input, Form } from 'antd'
 const { Item } = Form
 
 
 export default function HMTable() {
     return (
-        <table border="1">
-            <tr name="row0">
-                <th scope="col"><label >العناصر الثقيلة</label></th>
-                <th scope="col"><label >فى المياه (مللى جرام/لتر)</label></th>
-                <th scope="col"><label >فى الرسوبيات (مللى جرام/لتر)</label></th>
-            </tr>
-            <tr name="row1">
-                <td align="right"><label >الحديد</label></td>
-                <td align="right">
-                    <Item
-                    name="LSM_WATER1" 
-                    >
-                    <Input type="text" 
-                    dir="rtl" tabindex="50" />
-                            </Item>
-
-        </td>
-                <td align="right">
-                    <Item>
-                    <Input type="text" id="LSM_SEDIEMT1" name="LSM_SEDIEMT1" dir="rtl" tabindex="51" />
-                    </Item>
-                    </td>
-            </tr>
-            <tr name="row2">
-                <td align="right"><label >المنجنيز</label></td>
-                <td align="right">
-                    <Item
-                    name="LSM_WATER2" 
-                    >
-                    <Input type="text" 
-                    dir="rtl" tabindex="52" />
-                    </Item>
-                    </td>
-                <td align="right">
-                    <Item>
-                    <Input type="number" id="LSM_SEDIEMT2" name="LSM_SEDIEMT2" dir="rtl" tabindex="53" />
-                    </Item>
-                    </td>
-            </tr>
-            <tr name="row3">
-                <td align="right"><label >الزنك</label></td>
-                <td align="right">
-                    <Item
-                    name="LSM_WATER3" 
-                    >
-                    <Input type="text" 
-                    dir="rtl" tabindex="54" />
-                    </Item>
-                    </td>
-                <td align="right">
-                    <Item>
-                    <Input type="text" id="LSM_SEDIEMT3" name="LSM_SEDIEMT3" dir="rtl" tabindex="55" />
-                    </Item>
-                    </td>
-            </tr>
-            <tr name="row4">
-                <td align="right"><label >النحاس</label></td>
-                <td align="right">
-                    <Item
-                    name="LSM_WATER4" 
-                    >
-                    <Input type="text" 
-                    dir="rtl" tabindex="56" />
-                    </Item>
-                    </td>
-                <td align="right">
-                    <Item>
-                    <Input type="text" id="LSM_SEDIEMT4" name="LSM_SEDIEMT4" dir="rtl" tabindex="57" />
-                    </Item>
-                    </td>
-            </tr>
-            <tr name="row5">
-                <td align="right"><label >النيكل</label></td>
-                <td align="right">
-                    <Item
-                    name="LSM_WATER5" 
-                    >
-                    <Input type="text" 
-                    dir="rtl" tabindex="58" />
-                    </Item>
-                    </td>
-                <td align="right">
-                    <Item>
-                    <Input type="text" id="LSM_SEDIEMT5" name="LSM_SEDIEMT5" dir="rtl" tabindex="59" />
-                    </Item>
-                    </td>
-            </tr>
-            <tr name="row5">
-                <td align="right"><label >الكوبالت</label></td>
-                <td align="right">
-                    <Item
-                    name="LSM_WATER6" 
-                    >
-                    <Input type="text" 
-                    dir="rtl" tabindex="60" />
-                    </Item>
-                    </td>
-                <td align="right">
-                    <Item>
-                    <Input type="text" id="LSM_SEDIEMT6" name="LSM_SEDIEMT6" dir="rtl" tabindex="61" />
-                    </Item>
-                    </td>
-            </tr>
-            <tr name="row5">
-                <td align="right"><label >الرصاص</label></td>
-                <td align="right">
-                    <Item
-                    name="LSM_WATER7" 
-                    >
-                    <Input type="text" 
-                    dir="rtl" tabindex="62" />
-                    </Item>
-                    </td>
-                <td align="right">
-                    <Item>
-                    <Input type="text" id="LSM_SEDIEMT7" name="LSM_SEDIEMT7" dir="rtl" tabindex="63" />
-                    </Item>
-                    </td>
-            </tr>
-            <tr name="row5">
-                <td align="right"><label >الكادميوم</label></td>
-                <td align="right">
-                    <Item
-                    name="LSM_WATER8" 
-                    >
-                    <Input type="text" 
-                    dir="rtl" tabindex="65" />
-                    </Item>
-                    </td>
-                <td align="right">
-                    <Item>
-                    <Input type="text" id="LSM_SEDIEMT8" name="LSM_SEDIEMT8" dir="rtl" tabindex="66" />
-                    </Item>
-                    </td>
-            </tr>
-            <tr name="row5">
-                <td align="right"><label >الألومنيوم</label></td>
-                <td align="right">
-                    <Item>
-                    <Input type="text" id="LSM_WATER9" name="LSM_WATER9" dir="rtl" tabindex="67" />
-                    </Item>
-                    </td>
-                <td align="right">
-                    <Item>
-                    <Input type="text" id="LSM_SEDIEMT9" name="LSM_SEDIEMT9" dir="rtl" tabindex="68" />
-                    </Item>
-                    </td>
-            </tr>
-        </table>
+        <Form.List name="farmFixedCosts">
+            {
+                () => {
+                    return (<div>
+                        <table class="customtable" border="1">
+                            <tr name="row0">
+                                <th scope="col"><label >العناصر الثقيلة</label></th>
+                                <th scope="col"><label >فى المياه (مللى جرام/لتر)</label></th>
+                                <th scope="col"><label >فى الرسوبيات (مللى جرام/لتر)</label></th>
+                            </tr>
+                            <tr name="row1">
+                                <td align="right"><label >الحديد</label></td>
+                                <td align="right">
+                                <Item
+                                    name={[0, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                                <td align="right">
+                                <Item
+                                    name={[1, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}  
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                            </tr>
+                            <tr name="row2">
+                                <td align="right"><label >المنجنيز</label></td>
+                                <td align="right">
+                                <Item
+                                    name={[2, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                                <td align="right">
+                                <Item
+                                    name={[3, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                            </tr>
+                            <tr name="row3">
+                                <td align="right"><label >الزنك</label></td>
+                                <td align="right">
+                                <Item
+                                    name={[4, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                                <td align="right">
+                                <Item
+                                    name={[5, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                            </tr>
+                            <tr name="row4">
+                                <td align="right"><label >النحاس</label></td>
+                                <td align="right">
+                                <Item
+                                    name={[6, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                                <td align="right">
+                                <Item
+                                    name={[7, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                            </tr>
+                            <tr name="row5">
+                                <td align="right"><label >النيكل</label></td>
+                                <td align="right">
+                                <Item
+                                    name={[8, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                                <td align="right">
+                                <Item
+                                    name={[9, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                            </tr>
+                            <tr name="row5">
+                                <td align="right"><label >الكوبالت</label></td>
+                                <td align="right">
+                                <Item
+                                    name={[10, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                                <td align="right">
+                                <Item
+                                    name={[11, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                            </tr>
+                            <tr name="row5">
+                                <td align="right"><label >الرصاص</label></td>
+                                <td align="right">
+                                <Item
+                                    name={[12, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                                <td align="right">
+                                <Item
+                                    name={[13, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                            </tr>
+                            <tr name="row5">
+                                <td align="right"><label >الكادميوم</label></td>
+                                <td align="right">
+                                <Item
+                                    name={[14, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                                <td align="right">
+                                <Item
+                                    name={[15, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                            </tr>
+                            <tr name="row5">
+                                <td align="right"><label >الألومنيوم</label></td>
+                                <td align="right">
+                                <Item
+                                    name={[16, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                                <td align="right">
+                                <Item
+                                    name={[17, "val"]}
+                                    initialValue={0}
+                                    normalize={parseFloat}
+                                    
+                                >
+                                    <Input type="number" min={0} />
+                                </Item>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    )
+                }
+            }
+        </Form.List>
     )
 }

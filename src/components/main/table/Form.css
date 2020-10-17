@@ -70,7 +70,7 @@ p{
     text-align: right !important;
 }
 .ant-col.ant-form-item-control div,.ant-col.ant-form-item-control{
-width: 100% !important;
+/* width: 100% !important; */
 }
 
 
@@ -80,8 +80,10 @@ width: 100% !important;
     border-top: hidden;
     border-left: hidden;
 }
+div.ant-checkbox-group{
 
-
+    display: block !important;
+}
 
 
 

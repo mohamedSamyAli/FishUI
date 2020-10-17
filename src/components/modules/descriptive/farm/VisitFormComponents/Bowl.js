@@ -8,7 +8,7 @@ export default class Bowl extends Component {
     render() {
         return (
 
-            <Form.List name="latLongs">
+            <Form.List name="farmHod">
                 {(fields, dn) => {
                     if (fields.length === 0) {
                         dn.add()
@@ -16,7 +16,7 @@ export default class Bowl extends Component {
                     }
                     return (
                         <div>
-                            <table id="dataTable" name="dataTable" width="600" border="1">
+                            <table class="customtable" id="dataTable" name="dataTable" width="fit-content" border="1">
                                 <tr>
                                     <th>رقم الحوض وحجمه</th>
                                     <th>نوع الحوض</th>
@@ -33,8 +33,8 @@ export default class Bowl extends Component {
                                         <td>
                                             <Form.Item
                                                 {...field}
-                                                name={[field.name, 'lat']}
-                                                fieldKey={[field.fieldKey, 'lat']}
+                                                name={[field.name, 'code']}
+                                                fieldKey={[field.fieldKey, 'code']}
                                             >
                                                 <Input />
                                             </Form.Item>
@@ -42,73 +42,77 @@ export default class Bowl extends Component {
                                         <td>
                                             <Form.Item
                                                 {...field}
-                                                name={[field.name, 'lat']}
-                                                fieldKey={[field.fieldKey, 'lat']}
+                                                name={[field.name, 'hodTypeId']}
+                                                fieldKey={[field.fieldKey, 'hodTypeId']}
                                             >
-                                                <SelectorFetchComponent entity='gov' />
+                                                <SelectorFetchComponent entity='HodType' />
                                             </Form.Item>
                                         </td>
                                         <td>
                                             <Form.Item
                                                 {...field}
-                                                name={[field.name, 'lat']}
-                                                fieldKey={[field.fieldKey, 'lat']}
+                                                name={[field.name, 'hodPatternId']}
+                                                fieldKey={[field.fieldKey, 'hodPatternId']}
                                             >
-                                                <SelectorFetchComponent entity='gov' />
+                                                <SelectorFetchComponent entity='HodPattern' />
                                             </Form.Item>
                                         </td>
                                         <td>
                                             <Form.Item
                                                 {...field}
-                                                name={[field.name, 'lat']}
-                                                fieldKey={[field.fieldKey, 'lat']}
+                                                name={[field.name, 'hodFarmingTypeId']}
+                                                fieldKey={[field.fieldKey, 'hodFarmingTypeId']}
                                             >
-                                                <SelectorFetchComponent entity='gov' />
+                                                <SelectorFetchComponent entity='HodFarmingType' />
                                             </Form.Item>
                                         </td>
                                         <td>
                                             <Form.Item
                                                 {...field}
-                                                name={[field.name, 'lat']}
-                                                fieldKey={[field.fieldKey, 'lat']}
+                                                name={[field.name, 'fishKindId']}
+                                                fieldKey={[field.fieldKey, 'fishKindId']}
                                             >
-                                                <SelectorFetchComponent entity='gov' />
+                                                <SelectorFetchComponent entity='FishKind' />
                                             </Form.Item>
                                         </td>
                                         <td>
                                             <Form.Item
                                                 {...field}
-                                                name={[field.name, 'lat']}
-                                                fieldKey={[field.fieldKey, 'lat']}
+                                                name={[field.name, 'fishAvgInKg']}
+                                                fieldKey={[field.fieldKey, 'fishAvgInKg']}
+                                                normalize={parseFloat}
                                             >
-                                                <Input />
+                                                <Input type="number" />
                                             </Form.Item>
                                         </td>
                                         <td>
                                             <Form.Item
                                                 {...field}
-                                                name={[field.name, 'lat']}
-                                                fieldKey={[field.fieldKey, 'lat']}
-                                            >
-                                                <Input />
+                                                name={[field.name, 'totalProdKg']}
+                                                fieldKey={[field.fieldKey, 'totalProdKg']}
+                                                normalize={parseFloat}
+                                                >
+                                                    <Input type="number" />
                                             </Form.Item>
                                         </td>
                                         <td>
                                             <Form.Item
                                                 {...field}
-                                                name={[field.name, 'lat']}
-                                                fieldKey={[field.fieldKey, 'lat']}
-                                            >
-                                                <Input />
+                                                name={[field.name, 'prodInUnit']}
+                                                fieldKey={[field.fieldKey, 'prodInUnit']}
+                                                normalize={parseFloat}
+                                                >
+                                                    <Input type="number" />
                                             </Form.Item>
                                         </td>
                                         <td>
                                             <Form.Item
                                                 {...field}
-                                                name={[field.name, 'lat']}
-                                                fieldKey={[field.fieldKey, 'lat']}
-                                            >
-                                                <Input />
+                                                name={[field.name, 'kgAvgPrice']}
+                                                fieldKey={[field.fieldKey, 'kgAvgPrice']}
+                                                normalize={parseFloat}
+                                                >
+                                                    <Input type="number" />
                                             </Form.Item>
                                         </td>
                                         <td className="Htable">

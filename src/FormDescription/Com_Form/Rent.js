@@ -69,7 +69,7 @@ const Rent = (props) => {
 
 
         //#region totalPrice
-        debugger
+        
         if (values.hasOwnProperty("sahm")) {
             let totalArea = parseInt(values.fdan)
             if(values.sahm || values.kerat){
@@ -229,7 +229,7 @@ const Rent = (props) => {
                             }
                             return (
                                 <div>
-                                    <table id="dataTable" name="dataTable" width="600" border="1">
+                                    <table class="customtable" id="dataTable" name="dataTable" width="fit-content" border="1">
                                         <tr>
                                             <td align="center" bgcolor="#c6c4c4" ><label style={{ fontSize: "14px", fontWeight: "bold" }}>التاريخ</label></td>
                                             <td align="center" bgcolor="#c6c4c4"><label style={{ fontSize: "14px", fontWeight: "bold" }}>المبلغ</label></td>
@@ -257,7 +257,7 @@ const Rent = (props) => {
 
 
                                                     //             let temp = getFieldValue('paidMonies')
-                                                    //             debugger
+                                                    //             
                                                     //             //value = parseInt(value) ? parseInt(value) : 0
                                                     //             let sum = temp.reduce(function(a, b){
                                                     //                 return parseInt(a) + parseInt(b.value);
@@ -279,8 +279,9 @@ const Rent = (props) => {
                                                         {...field}
                                                         name={[field.name, 'reciept']}
                                                         fieldKey={[field.fieldKey, 'reciept']}
-                                                    >
-                                                        <Input />
+                                                     normalize={(v)=>parseFloat(v)}
+                >
+                    <Input type="number"></Input>
                                                     </Form.Item>
                                                 </td>
                                                 <td className="Htable">
@@ -341,7 +342,7 @@ const Rent = (props) => {
                             }
                             return (
                                 <div>
-                                    <table id="dataTable" name="dataTable" width="600" border="1">
+                                    <table class="customtable" id="dataTable" name="dataTable" width="fit-content" border="1">
                                         <tr>
                                             <td align="center" bgcolor="#c6c4c4" ><label style={{ fontSize: "14px", fontWeight: "bold" }}>التاريخ</label></td>
                                             <td align="center" bgcolor="#c6c4c4"><label style={{ fontSize: "14px", fontWeight: "bold" }}>رقم القرار</label></td>
@@ -363,8 +364,9 @@ const Rent = (props) => {
                                                         {...field}
                                                         name={[field.name, 'column1']}
                                                         fieldKey={[field.fieldKey, 'column1']}
-                                                    >
-                                                        <Input />
+                                                     normalize={(v)=>parseFloat(v)}
+                >
+                    <Input type="number"></Input>
                                                     </Form.Item>
                                                 </td>
                                                 <td align="center">

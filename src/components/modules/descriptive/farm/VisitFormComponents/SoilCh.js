@@ -10,45 +10,51 @@ export default class SoilCh extends Component {
             <div>
                  <Item
                             label="نوع التربه"
-                            name="sDd"
+                            name={["farmVisit","farmSample","SoilTypeId"]}
                         >
 <SelectorFetchComponent entity="soiltypelt"/>
                         </Item>
                   <Item
                             label="درجة الملوحه لكل جرام /لتر"
-                            name="dsD"
+                            name={["farmVisit","farmSample","soilsalinty"]}
+                            normalize={parseFloat}
                         >
-                            <Input />
+                            <Input  type="number"/>
                         </Item>
                         <Item
                             label="درجة الحموضه PH"
-                            name="PH"
-                        >
-                            <Input />
+                            name={["farmVisit","farmSample","soilPh"]}
+                            normalize={parseFloat}
+                            >
+                                <Input  type="number"/>
                         </Item>
                         <Item
                             label="نسبة المواد العضويه"
-                            name="sdfdd"
-                        >
-                            <Input />
+                            name={["farmVisit","farmSample","organic"]}
+                            normalize={parseFloat}
+                            >
+                                <Input  type="number"/>
                         </Item>
                         <Item
                             label="تركيز الكربونات ملجم/لتر"
-                            name="fgkr"
-                        >
-                            <Input />
+                            name={["farmVisit","farmSample","carbonate"]}
+                            normalize={parseFloat}
+                            >
+                                <Input  type="number"/>
                         </Item>
                         <Item
                             label="تركيز الفوسفات ملجم/لتر"
-                            name="fgkr"
-                        >
-                            <Input />
+                            name={["farmVisit","farmSample","phosphat"]}
+                            normalize={parseFloat}
+                            >
+                                <Input  type="number"/>
                         </Item>
                         <Item
                             label="تركيز الكبريتات ملجم/لتر"
-                            name="fgkr"
-                        >
-                            <Input />
+                            name={["farmVisit","farmSample","sulphate"]}
+                            normalize={parseFloat}
+                            >
+                                <Input  type="number"/>
                         </Item>
             </div>
         )

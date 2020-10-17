@@ -26,6 +26,7 @@ import NonOrganicFilter from './VisitFormComponents/NonOrganicFilter';
 import Durations from './VisitFormComponents/Durations';
 import FixedCost from './VisitFormComponents/FixedCost';
 import OperatingCost from './VisitFormComponents/OperatingCost';
+import Fertility from './VisitFormComponents/Fertility';
 const { Panel } = Collapse;
 const { Item } = Form
 export default class FarmF extends Component {
@@ -33,7 +34,7 @@ export default class FarmF extends Component {
     render() {
         return (
             <div className="collapsable__Sections">
-                <Collapse className="checkbox__collapsable-groups" defaultActiveKey={['1','مساحات']}>
+                <Collapse className="checkbox__collapsable-groups" defaultActiveKey={['1', 'مساحات']}>
 
                     <Panel accordion={true} header="معلومات عامه" key='1'>
                         <GenralInfo />
@@ -56,6 +57,9 @@ export default class FarmF extends Component {
                     <Panel accordion={true} header="المياه" key="المياه" >
                         <Water />
                     </Panel>
+                    <Panel accordion={true} header=" الخواص الكميائيه للتربه" key="الخواص الك للتربه" >
+                        <SoilCh />
+                    </Panel>
                     <Panel accordion={true} header="الخواص الكميائيه للمياه" key="الخواص الكميائيه للمياه" >
                         <WaterCh />
                     </Panel>
@@ -68,8 +72,11 @@ export default class FarmF extends Component {
                     <Panel accordion={true} header="اللافقاريات" key="اللافقاريات" >
                         <Invertebrates />
                     </Panel>
+                    <Panel accordion={true} header="تقدير الخصوبة الطبيعية للمياه" key="تقدير الخصوبة الطبيعية للمياه" >
+                        <Fertility/>
+                    </Panel>
                     <Panel accordion={true} header="الذريعه" key="الذريعه" >
-                        <Zareaa/>
+                        <Zareaa />
                     </Panel>
                     <Panel accordion={true} header="العينات البيولوجية" key="العينات البيولوجية">
                         <FSDT />
@@ -87,10 +94,10 @@ export default class FarmF extends Component {
                         <Durations />
                     </Panel>
                     <Panel accordion={true} header="التكاليف الاستثمارية الثابتة" key="التكاليف الاستثمارية الثابتة">
-                        <FixedCost/>
+                        <FixedCost />
                     </Panel>
                     <Panel accordion={true} header="تكاليف التشغيل بالجنيه" key="تكاليف التشغيل بالجنيه">
-                        <OperatingCost/>
+                        <OperatingCost />
                     </Panel>
 
                 </Collapse>

@@ -17,7 +17,7 @@ export default function PCSK() {
                     }
                     return (
                         <div>
-                            <table id="dataTable" name="dataTable" width="600" border="1">
+                            <table class="customtable" id="dataTable" name="dataTable" width="fit-content" border="1">
                                 <tr>
                                     <td align="center" bgcolor="#c6c4c4" ><label style={{fontSize:"14px", fontWeight: "bold"}}>الصنف</label></td>
                                     <td align="center" bgcolor="#c6c4c4"><label style={{fontSize:"14px", fontWeight: "bold"}}>اجمالى الانتاج بالكجم</label></td>

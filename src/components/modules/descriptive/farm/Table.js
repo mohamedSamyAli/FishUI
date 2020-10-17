@@ -40,7 +40,7 @@ class FarmTable extends Component {
         //     ...this.props.schema,
         //     columns: [...this.props.schema.columns]
         // }
-        debugger
+        
         FarmTS = FarmTS.map(e => {
             return {
                 ...e,
@@ -65,7 +65,6 @@ class FarmTable extends Component {
         
     }
     onClickDelete(id) {
-
         // axios.delete(baseURl + this.props.schema.endPoint + "/" + id).then(e => {
         //     alert("تم المسح")
         //     this.fetchData()
@@ -102,7 +101,7 @@ class FarmTable extends Component {
     onFinish = (e) => {
         
         delete e.markaz;
-        axios.post(baseURl + "Farm/AddFarm", e, {
+        axios.post(baseURl + "Farm/AddFarm", {...e,serial:parseInt(e.code)}, {
             headers: {
                 'Content-Type': 'application/json',
 

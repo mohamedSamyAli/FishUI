@@ -94,7 +94,8 @@ class VisitTable extends Component {
 
     onFinish = (e) => {
         debugger
-        axios.post(baseURl + "getfarmvisits/addfarm", e, {
+        
+        axios.post(baseURl + "farmvisit/addvisit/addfarm", e, {
             headers: {
                 'Content-Type': 'application/json',
 
@@ -112,7 +113,7 @@ class VisitTable extends Component {
         });
     };
     fetchData = () => {
-        debugger
+        
         axios.get(baseURl+"FarmVisit/GetByFarmId/"+this.props.initData.farm.id)
             .then((response) => {
                 console.log(response)

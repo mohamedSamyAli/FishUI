@@ -6,7 +6,7 @@ export default class Zareaa extends Component {
     render() {
         return (
             <div>
-                <Form.List name="latLongs">
+                <Form.List name="farmFishSeed">
                     {(fields, dn) => {
                         if (fields.length === 0) {
                             dn.add()
@@ -14,7 +14,7 @@ export default class Zareaa extends Component {
                         }
                         return (
                             <div>
-                                <table id="dataTable" name="dataTable" width="600" border="1">
+                                <table class="customtable" id="dataTable" name="dataTable" width="fit-content" border="1">
                                     <tr>
                                         <th rowspan="2" scope="col"><label>الصنف</label></th>
                                         <th colspan="3" scope="col"><label>عدد الزريعة بالألف</label></th>
@@ -31,58 +31,58 @@ export default class Zareaa extends Component {
                                             <td>
                                                 <Form.Item
                                                     {...field}
-                                                    name={[field.name, 'lat']}
-                                                    fieldKey={[field.fieldKey, 'lat']}
+                                                    name={[field.name, 'fishKindId']}
+                                                    fieldKey={[field.fieldKey, 'fishKindId']}
                                                 >
-                                                    <SelectorFetchComponent entity='gov' />
+                                                    <SelectorFetchComponent entity='FishKind' />
                                                 </Form.Item>
                                             </td>
                                             <td>
                                                 <Form.Item
                                                     {...field}
-                                                    name={[field.name, 'lat']}
-                                                    fieldKey={[field.fieldKey, 'lat']}
+                                                    name={[field.name, 'fishSeedTypeId']}
+                                                    fieldKey={[field.fieldKey, 'fishSeedTypeId']}
                                                 >
-                                                    <SelectorFetchComponent entity='gov' />
+                                                    <SelectorFetchComponent entity='FishSeedType' />
                                                 </Form.Item>
                                             </td>
                                             <td>
                                                 <Form.Item
                                                     {...field}
-                                                    name={[field.name, 'lat']}
-                                                    fieldKey={[field.fieldKey, 'lat']}
+                                                    name={[field.name, 'count']}
+                                                    fieldKey={[field.fieldKey, 'count']}
+                                                    normalize={parseFloat}
                                                 >
-                                                     <Input />
+                                                     <Input type="number" />
                                                 </Form.Item>
                                             </td>
                                             <td>
                                                 <Form.Item
                                                     {...field}
-                                                    name={[field.name, 'lat']}
-                                                    fieldKey={[field.fieldKey, 'lat']}
-                                                >
-                                                     <Input />
+                                                    name={[field.name, 'avgWeight']}
+                                                    fieldKey={[field.fieldKey, 'avgWeight']}
+                                                    normalize={parseFloat}
+                                                    >
+                                                         <Input type="number" />
                                                 </Form.Item>
                                             </td>
                                             <td>
                                                 <Form.Item
                                                     {...field}
-                                                    name={[field.name, 'lat']}
-                                                    fieldKey={[field.fieldKey, 'lat']}
-                                                >
-                                                     <Input />
+                                                    name={[field.name, 'price']}
+                                                    fieldKey={[field.fieldKey, 'price']}
+                                                    normalize={parseFloat}
+                                                    >
+                                                         <Input type="number" />
                                                 </Form.Item>
                                             </td>
-                                           
-                                            
-                                          
                                             <td>
                                                 <Form.Item
                                                     {...field}
-                                                    name={[field.name, 'lat']}
-                                                    fieldKey={[field.fieldKey, 'lat']}
+                                                    name={[field.name, 'fishSeedSourceId']}
+                                                    fieldKey={[field.fieldKey, 'fishSeedSourceId']}
                                                 >
-                                                    <SelectorFetchComponent entity='gov' />
+                                                    <SelectorFetchComponent entity='fishSeedSource' />
                                                 </Form.Item>
                                             </td>
                                             <td className="Htable">

@@ -7,37 +7,42 @@ export default class Weather extends Component {
         return (
             <div>
                 <Item
-                            name="mok32"
+                            name={["farmWeather",  "temp"]} 
                             label="درجة الحراره C"
-                        >
+                        normalize={parseFloat}
+>
                             <Input></Input>
                         </Item>
                         <Item
-                            name="mok32"
+                            name={["farmWeather",  "humedity"]} 
                             label="الرطوبه%"
-                        >
+                        normalize={parseFloat}
+>
                             <Input></Input>
                         </Item>
                         <Item
-                            name="mok32"
+                            name={["farmWeather",  "windspeed"]} 
                             label="سرعة الرياح(عقده)"
-                        >
+                        normalize={parseFloat}
+>
                             <Input></Input>
                         </Item>
                         <Item
-                            name="mok32"
+                            name={["farmWeather",  "rain"]} 
                             label="الامطار(m m)"
-                        >
+                        normalize={parseFloat}
+>
                             <Input></Input>
                         </Item>
                         <Item
-                            name="mok32l"
+                             name={["farmWeather",  "evap"]} 
                             label="البخر(m m)"
-                        >
+                        normalize={parseFloat}
+>
                             <Input></Input>
                         </Item>
                         <Item
-                            name="mok32l"
+                             name={["farmWeather",  "windDirectionId"]} 
                             label="اتجاه الرياح"
                         >
                             
